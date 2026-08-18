@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+0<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -1122,6 +1122,98 @@ Com base nisso:
             }
         }
     </script>
+
+    <!-- SLIDE 5: SOLICITANDO MACROS -->
+<section class="slide flex-col w-full" id="slide-5">
+    <div class="glass-panel p-8 md:p-10 rounded-3xl w-full border border-cyan-500/20">
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 03</span>
+                <h2 class="text-3xl font-bold text-white">Como solicitar uma Macro para a IA?</h2>
+            </div>
+            <div class="p-2.5 bg-indigo-500/10 rounded-xl text-indigo-400">
+                <i class="fa-solid fa-file-code text-2xl"></i>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-6">
+            <div class="glass-card p-3 rounded-xl border border-slate-700">
+                <span class="text-xs font-bold text-brand-cyan">1. Mapeie</span>
+                <p class="text-xs text-slate-300 mt-1">Defina o resultado e etapas repetitivas.</p>
+            </div>
+            <div class="glass-card p-3 rounded-xl border border-slate-700">
+                <span class="text-xs font-bold text-teal-300">2. Grave</span>
+                <p class="text-xs text-slate-300 mt-1">Explique colunas, abas e filtros passo a passo.</p>
+            </div>
+            <div class="glass-card p-3 rounded-xl border border-slate-700">
+                <span class="text-xs font-bold text-yellow-300">3. Evidências</span>
+                <p class="text-xs text-slate-300 mt-1">Anexe transcrição, prints e o prompt detalhado.</p>
+            </div>
+            <div class="glass-card p-3 rounded-xl border border-slate-700">
+                <span class="text-xs font-bold text-purple-300">4. Teste</span>
+                <p class="text-xs text-slate-300 mt-1">Execute o código VBA inicial com poucas linhas.</p>
+            </div>
+            <div class="glass-card p-3 rounded-xl border border-slate-700">
+                <span class="text-xs font-bold text-pink-300">5. Refine</span>
+                <p class="text-xs text-slate-300 mt-1">Erros acontecem. Ajuste e interaja com a IA!</p>
+            </div>
+        </div>
+
+        <!-- CAIXA DE PROMPT EM DESTAQUE PARA TESTE COM A IA -->
+        <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border-2 border-brand-cyan shadow-xl shadow-cyan-500/10 mb-6">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-brand-cyan text-base"></i>
+                    <span class="text-xs font-extrabold text-brand-cyan uppercase tracking-wider">
+                        Prompt Pronto para Copiar e Testar na IA
+                    </span>
+                </div>
+                <button onclick="copyMacroPrompt()" class="px-4 py-1.5 bg-brand-cyan hover:bg-teal-300 text-brand-dark font-extrabold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-copy"></i>
+                    <span id="copy-text">Copiar Prompt</span>
+                </button>
+            </div>
+            <p id="macro-prompt-code" class="text-xs md:text-sm font-mono text-slate-100 bg-slate-950/90 p-4 rounded-xl border border-slate-800 leading-relaxed">
+"Analise esta transcrição da gravação de tela. Também estou enviando imagens das planilhas. Identifique: onde clico, quais filtros aplico, colunas utilizadas e fórmulas.<br><br>
+Com base nisso:<br>
+1. Gere uma macro VBA que reproduza exatamente o processo;<br>
+2. Comente o código para facilitação de manutenção;<br>
+3. Explique como instalar no Excel e criar o botão de disparo."
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-cyan-500/10">
+                    Passo 1
+                </span>
+                <img src="imagem1.jpg" alt="Passo 1" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+            </div>
+
+            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-teal-500/10">
+                    Passo 2
+                </span>
+                <img src="imagem2.png" alt="Passo 2" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+            </div>
+
+            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-yellow-500/10">
+                    Passo 3
+                </span>
+                <img src="imagem3.png" alt="Passo 3" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+            </div>
+
+            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-purple-500/10">
+                    Passo 4
+                </span>
+                <img src="imagem4.png" alt="Passo 4" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
 
