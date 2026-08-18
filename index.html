@@ -25,7 +25,11 @@
         };
 
         if (typeof firebase !== 'undefined' && !firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
+            try {
+                firebase.initializeApp(firebaseConfig);
+            } catch (e) {
+                console.error("Erro ao inicializar Firebase:", e);
+            }
         }
         const database = (typeof firebase !== 'undefined' && firebase.apps.length) ? firebase.database() : null;
 
@@ -487,28 +491,28 @@ Com base nisso:
                         <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-cyan-500/10">
                             Passo 1
                         </span>
-                        <img src="imagem1.jpg" alt="Passo 1" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                        <img src="imagem1.jpg" alt="Passo 1" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/00d2ff?text=Mapeamento+de+Processo';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
                     </div>
 
                     <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
                         <span class="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-teal-500/10">
                             Passo 2
                         </span>
-                        <img src="imagem2.png" alt="Passo 2" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                        <img src="imagem2.png" alt="Passo 2" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/00e5ff?text=Grava%C3%A7%C3%A3o+de+Tela';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
                     </div>
 
                     <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
                         <span class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-yellow-500/10">
                             Passo 3
                         </span>
-                        <img src="imagem3.png" alt="Passo 3" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                        <img src="imagem3.png" alt="Passo 3" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/eab308?text=Gera%C3%A7%C3%A3o+de+Evid%C3%AAncias';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
                     </div>
 
                     <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
                         <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-purple-500/10">
                             Passo 4
                         </span>
-                        <img src="imagem4.png" alt="Passo 4" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                        <img src="imagem4.png" alt="Passo 4" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/a855f7?text=Execu%C3%A7%C3%A3o+e+Ajustes';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
                     </div>
                 </div>
             </div>
@@ -547,7 +551,7 @@ Com base nisso:
         </section>
 
         <!-- SLIDE 7: QUIZ QUESTION CONTAINER -->
-        <section class="slide flex-col w-full" id="slide-quiz">
+        <section class="slide flex-col w-full" id="slide-7">
             <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-cyan-500/30 relative overflow-hidden">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
                     <div class="flex items-center gap-3">
@@ -596,7 +600,7 @@ Com base nisso:
         </section>
 
         <!-- SLIDE 8: FINAL LEADERBOARD -->
-        <section class="slide flex-col w-full" id="slide-ranking">
+        <section class="slide flex-col w-full" id="slide-8">
             <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
                 <div class="text-center mb-6">
                     <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-xs font-bold uppercase tracking-widest">
@@ -803,10 +807,17 @@ Com base nisso:
         let playerName = "Usuário";
         let userAnswers = [];
 
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
 
         function playSound(type) {
             if (!audioEnabled) return;
+            initAudio();
             try {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
@@ -890,14 +901,13 @@ Com base nisso:
             const slides = document.querySelectorAll('.slide');
             slides.forEach(s => s.classList.remove('active'));
 
-            if (n === 7) {
-                document.getElementById('slide-quiz').classList.add('active');
-            } else if (n === 8) {
-                document.getElementById('slide-ranking').classList.add('active');
+            const target = document.getElementById(`slide-${n}`);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            if (n === 8) {
                 renderRanking();
-            } else {
-                const target = document.getElementById(`slide-${n}`);
-                if (target) target.classList.add('active');
             }
 
             currentSlide = n;
@@ -1097,7 +1107,8 @@ Com base nisso:
             });
 
             if (!database) {
-                console.warn("Banco de dados não está disponível no momento.");
+                console.warn("Banco de dados não está disponível no momento. Exibindo placar local.");
+                updateLeaderboardUI([{ name: playerName, score: score }]);
                 return;
             }
 
@@ -1116,38 +1127,44 @@ Com base nisso:
                 });
 
                 competitors.sort((a, b) => b.score - a.score);
+                updateLeaderboardUI(competitors);
+            }, (error) => {
+                console.error("Erro ao carregar dados do Firebase:", error);
+                updateLeaderboardUI([{ name: playerName, score: score }]);
+            });
+        }
 
-                const top1 = competitors[0] || { name: "-", score: 0 };
-                const top2 = competitors[1] || { name: "-", score: 0 };
-                const top3 = competitors[2] || { name: "-", score: 0 };
+        function updateLeaderboardUI(competitors) {
+            const top1 = competitors[0] || { name: "-", score: 0 };
+            const top2 = competitors[1] || { name: "-", score: 0 };
+            const top3 = competitors[2] || { name: "-", score: 0 };
 
-                document.getElementById('podium-1-name').innerText = top1.name;
-                document.getElementById('podium-1-score').innerText = `${top1.score} pts`;
+            document.getElementById('podium-1-name').innerText = top1.name;
+            document.getElementById('podium-1-score').innerText = `${top1.score} pts`;
 
-                document.getElementById('podium-2-name').innerText = top2.name;
-                document.getElementById('podium-2-score').innerText = `${top2.score} pts`;
+            document.getElementById('podium-2-name').innerText = top2.name;
+            document.getElementById('podium-2-score').innerText = `${top2.score} pts`;
 
-                document.getElementById('podium-3-name').innerText = top3.name;
-                document.getElementById('podium-3-score').innerText = `${top3.score} pts`;
+            document.getElementById('podium-3-name').innerText = top3.name;
+            document.getElementById('podium-3-score').innerText = `${top3.score} pts`;
 
-                const listContainer = document.getElementById('leaderboard-list');
-                listContainer.innerHTML = '';
+            const listContainer = document.getElementById('leaderboard-list');
+            listContainer.innerHTML = '';
 
-                competitors.forEach((comp, rank) => {
-                    const isCurrent = comp.name === playerName;
-                    const item = document.createElement('div');
-                    item.className = `p-3 rounded-xl flex items-center justify-between ${isCurrent ? 'bg-cyan-500/20 border border-cyan-500/50 text-white font-bold' : 'glass-card text-slate-300'}`;
-                    item.innerHTML = `
-                        <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full ${rank === 0 ? 'bg-yellow-500 text-brand-dark' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-bold text-xs">
-                                ${rank + 1}
-                            </span>
-                            <span>${comp.name} ${isCurrent ? '<span class="text-[10px] text-brand-cyan uppercase ml-1">(Você)</span>' : ''}</span>
-                        </div>
-                        <span class="font-bold text-brand-cyan">${comp.score} pts</span>
-                    `;
-                    listContainer.appendChild(item);
-                });
+            competitors.forEach((comp, rank) => {
+                const isCurrent = comp.name === playerName;
+                const item = document.createElement('div');
+                item.className = `p-3 rounded-xl flex items-center justify-between ${isCurrent ? 'bg-cyan-500/20 border border-cyan-500/50 text-white font-bold' : 'glass-card text-slate-300'}`;
+                item.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="w-6 h-6 rounded-full ${rank === 0 ? 'bg-yellow-500 text-brand-dark' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-bold text-xs">
+                            ${rank + 1}
+                        </span>
+                        <span>${comp.name} ${isCurrent ? '<span class="text-[10px] text-brand-cyan uppercase ml-1">(Você)</span>' : ''}</span>
+                    </div>
+                    <span class="font-bold text-brand-cyan">${comp.score} pts</span>
+                `;
+                listContainer.appendChild(item);
             });
         }
 
