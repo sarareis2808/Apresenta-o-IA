@@ -398,10 +398,7 @@
                             <span class="text-slate-300">Tom, tamanho, regras</span>
                             <span class="text-slate-400 italic">"Tom formal, até 200 palavras."</span>
                         </div>
-                        <img src="imagem1.png" alt="Passo 1">
-                        <img src="imagem2.png" alt="Passo 1">
-                        <img src="imagem3.png" alt="Passo 1">
-                        <img src="imagem4.png" alt="Passo 1">
+                        
                     </div>
 
                     <!-- Right: Good vs Bad Comparison -->
@@ -481,6 +478,44 @@ Com base nisso:
 3. Explique como instalar no Excel e criar o botão de disparo."</pre>
                 </div>
             </div>
+            <!-- Bloco de Código do Prompt existente -->
+<div class="relative bg-slate-950 p-4 rounded-2xl border border-slate-800">
+    <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+            <i class="fa-solid fa-copy mr-1 text-brand-cyan"></i> Modelo de Prompt para Pedir VBA
+        </span>
+        <button onclick="copyMacroPrompt()" class="px-3 py-1 bg-brand-cyan/20 hover:bg-brand-cyan/30 text-brand-cyan text-xs font-bold rounded-lg border border-cyan-500/40 transition">
+            <span id="copy-text">Copiar Prompt</span>
+        </button>
+    </div>
+    <pre id="macro-prompt-code" class="text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto pr-2">
+"Analise esta transcrição da gravação de tela. Também estou enviando imagens das planilhas. Identifique: onde clico, quais filtros aplico, colunas utilizadas e fórmulas.
+Com base nisso:
+1. Gere uma macro VBA que reproduza exatamente o processo;
+2. Comente o código para facilitação de manutenção;
+3. Explique como instalar no Excel e criar o botão de disparo."</pre>
+</div>
+
+<!-- NOVAS IMAGENS DENTRO DE DIVS PADRONIZADAS -->
+<div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="glass-card p-2 rounded-xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+        <img src="imagem1.png" alt="Passo 1" class="w-full h-24 object-cover rounded-lg border border-slate-800">
+        <span class="text-[10px] text-slate-400 font-semibold mt-2">Passo 1</span>
+    </div>
+    <div class="glass-card p-2 rounded-xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+        <img src="imagem2.png" alt="Passo 2" class="w-full h-24 object-cover rounded-lg border border-slate-800">
+        <span class="text-[10px] text-slate-400 font-semibold mt-2">Passo 2</span>
+    </div>
+    <div class="glass-card p-2 rounded-xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+        <img src="imagem3.png" alt="Passo 3" class="w-full h-24 object-cover rounded-lg border border-slate-800">
+        <span class="text-[10px] text-slate-400 font-semibold mt-2">Passo 3</span>
+    </div>
+    <div class="glass-card p-2 rounded-xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+        <img src="imagem4.png" alt="Passo 4" class="w-full h-24 object-cover rounded-lg border border-slate-800">
+        <span class="text-[10px] text-slate-400 font-semibold mt-2">Passo 4</span>
+    </div>
+</div>
+
         </section>
 
         <!-- SLIDE 6: DESAFIO QUIZ LOBBY (START) -->
