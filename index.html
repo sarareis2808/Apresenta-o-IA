@@ -14,7 +14,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- FIREBASE SDKs (Compatibilidade para uso direto no navegador) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
     <script>
+        // CONFIGURAÇÃO DO FIREBASE (Cole aqui as suas chaves do Firebase Console)
+        const firebaseConfig = {
+            databaseURL: "https://apresenta-o-ia-default-rtdb.firebaseio.com",
+            // apiKey: "SUA_API_KEY",
+            // authDomain: "apresenta-o-ia.firebaseapp.com",
+            // projectId: "apresenta-o-ia",
+            // storageBucket: "apresenta-o-ia.appspot.com",
+            // messagingSenderId: "1234567890",
+            // appId: "1:1234567890:web:abcdef123456"
+        };
+
+        // Inicializa o Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const database = firebase.database();
+
+        // Configurações do Tailwind
         tailwind.config = {
             theme: {
                 extend: {
@@ -46,7 +69,6 @@
             color: #f1f5f9;
             overflow-x: hidden;
         }
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -58,7 +80,6 @@
             background: #0070ad;
             border-radius: 3px;
         }
-        /* Glassmorphism Effect */
         .glass-panel {
             background: rgba(15, 28, 54, 0.65);
             backdrop-filter: blur(16px);
@@ -76,7 +97,6 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px -10px rgba(0, 210, 255, 0.25);
         }
-        /* Background Animated Orbs */
         .orb {
             position: absolute;
             border-radius: 50%;
@@ -96,7 +116,6 @@
             100% { transform: translate(-30px, -40px) scale(0.95); }
         }
 
-        /* Slide Active Animations */
         .slide {
             display: none;
             opacity: 0;
@@ -109,7 +128,6 @@
             transform: scale(1);
         }
 
-        /* Timer Ring animation */
         .timer-svg circle {
             transition: stroke-dashoffset 0.1s linear;
         }
@@ -117,7 +135,6 @@
 </head>
 <body class="min-h-screen font-sans flex flex-col justify-between relative selection:bg-brand-cyan selection:text-brand-dark">
 
-    <!-- Background Orbs -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
@@ -137,7 +154,6 @@
             </div>
         </div>
 
-        <!-- Progress Indicator -->
         <div class="hidden md:flex items-center space-x-3">
             <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Slide <span id="current-slide-num" class="text-brand-cyan">1</span> de <span id="total-slides-num">10</span></span>
             <div class="w-36 h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
@@ -145,7 +161,6 @@
             </div>
         </div>
 
-        <!-- Controls Header -->
         <div class="flex items-center space-x-2">
             <button onclick="toggleAudio()" id="audio-btn" class="p-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Mutar/Ativar Sons">
                 <i class="fa-solid fa-volume-high" id="audio-icon"></i>
@@ -281,7 +296,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Column 1: Core Benefits -->
                     <div class="space-y-3">
                         <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-2">Principais Usos Práticos</h3>
                         
@@ -307,7 +321,6 @@
                         </div>
                     </div>
 
-                    <!-- Column 2: Practical Example & Interactive Poll -->
                     <div class="space-y-4">
                         <div class="p-5 rounded-2xl bg-gradient-to-br from-blue-900/40 to-slate-900 border border-blue-500/30">
                             <div class="flex items-center gap-2 text-brand-cyan text-xs font-bold uppercase mb-2">
@@ -319,7 +332,6 @@
                             </p>
                         </div>
 
-                        <!-- Interactive reflection box -->
                         <div class="glass-card p-5 rounded-2xl border border-cyan-500/30">
                             <label class="block text-sm font-bold text-white mb-2">
                                 <i class="fa-solid fa-comments text-brand-cyan mr-1"></i>
@@ -353,7 +365,6 @@
                     </div>
                 </div>
 
-                <!-- Prompt Formula Formula Box -->
                 <div class="p-4 rounded-2xl bg-gradient-to-r from-blue-950 to-slate-900 border border-brand-cyan/40 text-center mb-6">
                     <p class="text-sm font-bold text-white tracking-wide">
                         <span class="text-brand-cyan">Contexto</span> + 
@@ -366,7 +377,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Left: Table of Elements -->
                     <div class="space-y-2 text-xs">
                         <div class="grid grid-cols-3 p-2 bg-slate-900/80 rounded-lg text-slate-400 font-bold uppercase">
                             <span>Elemento</span>
@@ -398,10 +408,8 @@
                             <span class="text-slate-300">Tom, tamanho, regras</span>
                             <span class="text-slate-400 italic">"Tom formal, até 200 palavras."</span>
                         </div>
-                        
                     </div>
 
-                    <!-- Right: Good vs Bad Comparison -->
                     <div class="space-y-3">
                         <div class="p-4 rounded-xl bg-red-500/10 border border-red-500/30">
                             <h4 class="text-xs font-bold text-red-400 uppercase tracking-wider mb-1">
@@ -460,7 +468,6 @@
                     </div>
                 </div>
 
-                <!-- Copiable Template Box -->
                 <div class="relative bg-slate-950 p-4 rounded-2xl border border-slate-800">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">
@@ -477,64 +484,37 @@ Com base nisso:
 2. Comente o código para facilitação de manutenção;
 3. Explique como instalar no Excel e criar o botão de disparo."</pre>
                 </div>
+
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-cyan-500/10">
+                            Passo 1
+                        </span>
+                        <img src="imagem1.jpg" alt="Passo 1" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-teal-500/10">
+                            Passo 2
+                        </span>
+                        <img src="imagem2.png" alt="Passo 2" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-yellow-500/10">
+                            Passo 3
+                        </span>
+                        <img src="imagem3.png" alt="Passo 3" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-purple-500/10">
+                            Passo 4
+                        </span>
+                        <img src="imagem4.png" alt="Passo 4" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
+                    </div>
+                </div>
             </div>
-            <!-- Bloco de Código do Prompt existente -->
-<div class="relative bg-slate-950 p-4 rounded-2xl border border-slate-800">
-    <div class="flex items-center justify-between mb-2">
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">
-            <i class="fa-solid fa-copy mr-1 text-brand-cyan"></i> Modelo de Prompt para Pedir VBA
-        </span>
-        <button onclick="copyMacroPrompt()" class="px-3 py-1 bg-brand-cyan/20 hover:bg-brand-cyan/30 text-brand-cyan text-xs font-bold rounded-lg border border-cyan-500/40 transition">
-            <span id="copy-text">Copiar Prompt</span>
-        </button>
-    </div>
-    <pre id="macro-prompt-code" class="text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto pr-2">
-"Analise esta transcrição da gravação de tela. Também estou enviando imagens das planilhas. Identifique: onde clico, quais filtros aplico, colunas utilizadas e fórmulas.
-Com base nisso:
-1. Gere uma macro VBA que reproduza exatamente o processo;
-2. Comente o código para facilitação de manutenção;
-3. Explique como instalar no Excel e criar o botão de disparo."</pre>
-</div>
-
-<!-- NOVAS IMAGENS DENTRO DE DIVS PADRONIZADAS -->
-<!-- NOVAS IMAGENS EM GRID LADO A LADO (2 POR LINHA) COM PASSOS EM DESTAQUE -->
-<div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-    
-    <!-- Passo 1 -->
-    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-cyan-500/10">
-            Passo 1
-        </span>
-        <img src="imagem1.jpg" alt="Passo 1" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-    </div>
-
-    <!-- Passo 2 -->
-    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-teal-500/10">
-            Passo 2
-        </span>
-        <img src="imagem2.png" alt="Passo 2" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-    </div>
-
-    <!-- Passo 3 -->
-    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-yellow-500/10">
-            Passo 3
-        </span>
-        <img src="imagem3.png" alt="Passo 3" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-    </div>
-
-    <!-- Passo 4 -->
-    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-purple-500/10">
-            Passo 4
-        </span>
-        <img src="imagem4.png" alt="Passo 4" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-    </div>
-
-</div>
-
-
         </section>
 
         <!-- SLIDE 6: DESAFIO QUIZ LOBBY (START) -->
@@ -569,11 +549,9 @@ Com base nisso:
             </div>
         </section>
 
-        <!-- SLIDE 7: QUIZ QUESTION CONTAINER (DYNAMIC 7, 8, 9, 10) -->
+        <!-- SLIDE 7: QUIZ QUESTION CONTAINER -->
         <section class="slide flex-col w-full" id="slide-quiz">
             <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-cyan-500/30 relative overflow-hidden">
-                
-                <!-- Quiz Header bar -->
                 <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
                     <div class="flex items-center gap-3">
                         <span id="quiz-question-counter" class="px-3 py-1 bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 rounded-full font-bold text-xs">
@@ -584,7 +562,6 @@ Com base nisso:
                         </span>
                     </div>
 
-                    <!-- Countdown Timer Ring -->
                     <div class="flex items-center gap-4">
                         <div class="flex items-center gap-2 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
                             <i class="fa-solid fa-coins text-yellow-400 text-sm"></i>
@@ -600,17 +577,12 @@ Com base nisso:
                     </div>
                 </div>
 
-                <!-- Question Title -->
                 <h3 id="question-title" class="text-lg md:text-2xl font-bold text-white leading-snug mb-6">
                     Carregando pergunta...
                 </h3>
 
-                <!-- Options Grid -->
-                <div id="options-container" class="space-y-3 mb-6">
-                    <!-- Dynamic Options -->
-                </div>
+                <div id="options-container" class="space-y-3 mb-6"></div>
 
-                <!-- Explanation / Feedback Banner -->
                 <div id="quiz-feedback" class="hidden p-4 rounded-2xl border text-sm flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <i id="feedback-icon" class="text-xl"></i>
@@ -626,33 +598,29 @@ Com base nisso:
             </div>
         </section>
 
-        <!-- SLIDE 11: FINAL LEADERBOARD & RANKING -->
+        <!-- SLIDE 8: FINAL LEADERBOARD (INTEGRADO AO FIREBASE) -->
         <section class="slide flex-col w-full" id="slide-ranking">
             <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
-                
                 <div class="text-center mb-6">
                     <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-xs font-bold uppercase tracking-widest">
                         Resultado do Desafio
                     </span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Ranking Geral de Prompts</h2>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Ranking Geral em Tempo Real</h2>
                 </div>
 
                 <!-- Podium Top 3 -->
                 <div class="grid grid-cols-3 gap-3 md:gap-6 max-w-2xl mx-auto mb-8 items-end">
-                    
-                    <!-- 2nd Place -->
                     <div class="flex flex-col items-center">
                         <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-slate-800 border-2 border-slate-400 flex items-center justify-center text-slate-300 font-extrabold text-lg mb-2 shadow-lg">
                             2º
                         </div>
-                        <span id="podium-2-name" class="text-xs font-bold text-slate-300 truncate w-full text-center">Eduana</span>
-                        <span id="podium-2-score" class="text-[11px] text-slate-400">380 pts</span>
+                        <span id="podium-2-name" class="text-xs font-bold text-slate-300 truncate w-full text-center">-</span>
+                        <span id="podium-2-score" class="text-[11px] text-slate-400">0 pts</span>
                         <div class="w-full bg-slate-800/80 rounded-t-xl h-20 md:h-28 mt-2 border-t-2 border-slate-400 flex items-center justify-center">
                             <i class="fa-solid fa-medal text-slate-400 text-2xl"></i>
                         </div>
                     </div>
 
-                    <!-- 1st Place -->
                     <div class="flex flex-col items-center">
                         <div class="relative">
                             <i class="fa-solid fa-crown text-yellow-400 text-xl absolute -top-5 left-1/2 transform -translate-x-1/2"></i>
@@ -660,32 +628,29 @@ Com base nisso:
                                 1º
                             </div>
                         </div>
-                        <span id="podium-1-name" class="text-xs font-bold text-yellow-300 truncate w-full text-center">Você</span>
-                        <span id="podium-1-score" class="text-xs font-extrabold text-yellow-400">450 pts</span>
+                        <span id="podium-1-name" class="text-xs font-bold text-yellow-300 truncate w-full text-center">-</span>
+                        <span id="podium-1-score" class="text-xs font-extrabold text-yellow-400">0 pts</span>
                         <div class="w-full bg-gradient-to-t from-yellow-600/40 to-yellow-500/20 rounded-t-xl h-28 md:h-36 mt-2 border-t-2 border-yellow-400 flex items-center justify-center">
                             <i class="fa-solid fa-trophy text-yellow-400 text-3xl"></i>
                         </div>
                     </div>
 
-                    <!-- 3rd Place -->
                     <div class="flex flex-col items-center">
                         <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-amber-900/40 border-2 border-amber-600 flex items-center justify-center text-amber-500 font-extrabold text-lg mb-2 shadow-lg">
                             3º
                         </div>
-                        <span id="podium-3-name" class="text-xs font-bold text-slate-300 truncate w-full text-center">Sara</span>
-                        <span id="podium-3-score" class="text-[11px] text-slate-400">320 pts</span>
+                        <span id="podium-3-name" class="text-xs font-bold text-slate-300 truncate w-full text-center">-</span>
+                        <span id="podium-3-score" class="text-[11px] text-slate-400">0 pts</span>
                         <div class="w-full bg-slate-800/80 rounded-t-xl h-16 md:h-24 mt-2 border-t-2 border-amber-600 flex items-center justify-center">
                             <i class="fa-solid fa-award text-amber-600 text-xl"></i>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Full Leaderboard Table -->
                 <div class="glass-card rounded-2xl p-4 max-w-2xl mx-auto mb-6">
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Tabela Completa de Desempenho</h4>
                     <div id="leaderboard-list" class="space-y-2 text-xs">
-                        <!-- Dynamic Leaderboard Items -->
+                        <p class="text-center text-slate-500 py-4">Carregando dados do servidor...</p>
                     </div>
                 </div>
 
@@ -700,7 +665,7 @@ Com base nisso:
             </div>
         </section>
 
-        <!-- SLIDE 12: CONCLUSION -->
+        <!-- SLIDE 10: CONCLUSION -->
         <section class="slide flex-col w-full text-center" id="slide-10">
             <div class="glass-panel p-10 md:p-14 rounded-3xl w-full max-w-3xl mx-auto border border-cyan-500/20">
                 <div class="w-16 h-16 rounded-2xl bg-accent-gradient flex items-center justify-center text-white text-3xl mx-auto mb-6 shadow-xl shadow-cyan-500/30">
@@ -739,10 +704,7 @@ Com base nisso:
             <span>Anterior</span>
         </button>
 
-        <!-- Slide Menu Quick Jump -->
-        <div class="hidden sm:flex items-center space-x-1" id="slide-dots">
-            <!-- Dynamic dots -->
-        </div>
+        <div class="hidden sm:flex items-center space-x-1" id="slide-dots"></div>
 
         <button onclick="nextSlide()" id="next-btn" class="px-5 py-2 rounded-xl bg-accent-gradient text-white font-bold text-xs shadow-md hover:scale-105 transition flex items-center gap-2">
             <span>Próximo</span>
@@ -752,12 +714,10 @@ Com base nisso:
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // SLIDE DATA & STATE
         let currentSlide = 1;
-        const totalSlides = 10; // Cover, Agenda, IA Dia a Dia, Prompts, Macros, Quiz Start, Quiz Dynamic, Ranking, Thank you
+        const totalSlides = 10;
         let audioEnabled = true;
 
-        // QUIZ DATA
         const quizQuestions = [
             {
                 id: 1,
@@ -808,7 +768,6 @@ Com base nisso:
         let playerName = "Usuário";
         let userAnswers = [];
 
-        // Web Audio API Synthesizer (Zero External Dependencies)
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
         function playSound(type) {
@@ -820,16 +779,16 @@ Com base nisso:
                 gain.connect(audioCtx.destination);
 
                 if (type === 'correct') {
-                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
-                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
+                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1);
                     gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
                     gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
                     osc.start();
                     osc.stop(audioCtx.currentTime + 0.3);
                 } else if (type === 'wrong') {
                     osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(220, audioCtx.currentTime); // A3
-                    osc.frequency.setValueAtTime(164.81, audioCtx.currentTime + 0.15); // E3
+                    osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(164.81, audioCtx.currentTime + 0.15);
                     gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
                     gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
                     osc.start();
@@ -854,15 +813,13 @@ Com base nisso:
             }
         }
 
-        // INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
             initDots();
             showSlide(currentSlide);
 
-            // Keyboard navigation
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight' || e.key === ' ') {
-                    if (currentSlide !== 7) nextSlide(); // don't jump during quiz
+                    if (currentSlide !== 7) nextSlide();
                 } else if (e.key === 'ArrowLeft') {
                     if (currentSlide !== 7) prevSlide();
                 }
@@ -885,13 +842,11 @@ Com base nisso:
             document.getElementById('current-slide-num').innerText = currentSlide;
             document.getElementById('progress-bar').style.width = `${(currentSlide / totalSlides) * 100}%`;
 
-            // Update dots
             const dots = document.getElementById('slide-dots').children;
             for (let i = 0; i < dots.length; i++) {
                 dots[i].className = `w-2.5 h-2.5 rounded-full transition-all ${i + 1 === currentSlide ? 'bg-brand-cyan w-6' : 'bg-slate-700 hover:bg-slate-500'}`;
             }
 
-            // Disable prev/next on bounds
             document.getElementById('prev-btn').style.opacity = currentSlide === 1 ? '0.5' : '1';
             document.getElementById('next-btn').style.opacity = currentSlide === totalSlides ? '0.5' : '1';
         }
@@ -901,10 +856,8 @@ Com base nisso:
             slides.forEach(s => s.classList.remove('active'));
 
             if (n === 7) {
-                // Quiz Question active
                 document.getElementById('slide-quiz').classList.add('active');
             } else if (n === 8) {
-                // Ranking Slide
                 document.getElementById('slide-ranking').classList.add('active');
                 renderRanking();
             } else if (n >= 9) {
@@ -934,7 +887,6 @@ Com base nisso:
             showSlide(n);
         }
 
-        // INTERACTIVE SLIDE FUNCTIONS
         function saveUserReflection() {
             const val = document.getElementById('user-task-input').value;
             if (val.trim()) {
@@ -950,7 +902,6 @@ Com base nisso:
             setTimeout(() => { copyBtn.innerText = "Copiar Prompt"; }, 2000);
         }
 
-        // QUIZ GAME ENGINE
         function startQuizGame() {
             const nameInput = document.getElementById('player-name').value;
             playerName = nameInput.trim() ? nameInput : "Usuário";
@@ -972,10 +923,8 @@ Com base nisso:
             document.getElementById('quiz-question-counter').innerText = `Questão ${idx + 1} de ${quizQuestions.length}`;
             document.getElementById('question-title').innerText = q.question;
 
-            // Reset feedback
             document.getElementById('quiz-feedback').classList.add('hidden');
 
-            // Render options
             const optsContainer = document.getElementById('options-container');
             optsContainer.innerHTML = '';
 
@@ -994,7 +943,6 @@ Com base nisso:
                 optsContainer.appendChild(btn);
             });
 
-            // Start 15s Timer
             timeLeft = 15;
             updateTimerRing();
             
@@ -1013,7 +961,7 @@ Com base nisso:
         function updateTimerRing() {
             document.getElementById('timer-text').innerText = timeLeft;
             const circle = document.getElementById('timer-ring');
-            const circumference = 2 * Math.PI * 20; // 125.6
+            const circumference = 2 * Math.PI * 20;
             const offset = circumference - (timeLeft / 15) * circumference;
             circle.style.strokeDashoffset = offset;
 
@@ -1030,10 +978,9 @@ Com base nisso:
             clearInterval(timerInterval);
             const isCorrect = selectedOpt.correct;
 
-            // Calculate score (Speed bonus)
             let earnedPoints = 0;
             if (isCorrect) {
-                earnedPoints = 100 + (timeLeft * 10); // max 250 pts per Q
+                earnedPoints = 100 + (timeLeft * 10);
                 score += earnedPoints;
                 playSound('correct');
             } else {
@@ -1042,7 +989,6 @@ Com base nisso:
 
             document.getElementById('quiz-score').innerText = `${score} pts`;
 
-            // Highlight options
             const opts = document.getElementById('options-container').children;
             question.options.forEach((opt, index) => {
                 const btn = opts[index];
@@ -1056,7 +1002,6 @@ Com base nisso:
                 }
             });
 
-            // Show feedback
             const feedbackBox = document.getElementById('quiz-feedback');
             feedbackBox.classList.remove('hidden');
 
@@ -1102,67 +1047,73 @@ Com base nisso:
             if (currentQuestionIdx < quizQuestions.length) {
                 loadQuestion(currentQuestionIdx);
             } else {
-                // Quiz completed -> Go to Ranking
                 showSlide(8);
             }
         }
 
-        // RANKING GENERATION & PODIUM
+        // INTEGRAÇÃO REALTIME COM O FIREBASE NO RANKING
         function renderRanking() {
-            // Trigger Confetti
             confetti({
                 particleCount: 80,
                 spread: 70,
                 origin: { y: 0.6 }
             });
 
-            // Simulated Participants
-            const competitors = [
-                { name: "Eduana S.", score: 680 },
-                { name: "Sara Reis", score: 610 },
-                { name: "Copilot AI", score: 850 },
-                { name: "Carlos M.", score: 420 },
-                { name: playerName, score: score, isUser: true }
-            ];
+            // 1. Grava no nó "ranking" usando o nome limpo do usuário como chave
+            if (database) {
+                const safeKey = playerName.replace(/[.#$\[\]]/g, "_");
+                const playerRef = database.ref('ranking/' + safeKey);
+                playerRef.set({
+                    name: playerName,
+                    score: score,
+                    updatedAt: Date.now()
+                });
 
-            // Sort descending
-            competitors.sort((a, b) => b.score - a.score);
+                // 2. Escuta atualizações do nó "ranking" em tempo real
+                database.ref('ranking').on('value', (snapshot) => {
+                    const competitors = [];
+                    snapshot.forEach((child) => {
+                        competitors.push(child.val());
+                    });
 
-            // Update Podium
-            const top1 = competitors[0] || { name: "-", score: 0 };
-            const top2 = competitors[1] || { name: "-", score: 0 };
-            const top3 = competitors[2] || { name: "-", score: 0 };
+                    // Ordena do maior para o menor placar
+                    competitors.sort((a, b) => b.score - a.score);
 
-            document.getElementById('podium-1-name').innerText = top1.name;
-            document.getElementById('podium-1-score').innerText = `${top1.score} pts`;
+                    const top1 = competitors[0] || { name: "-", score: 0 };
+                    const top2 = competitors[1] || { name: "-", score: 0 };
+                    const top3 = competitors[2] || { name: "-", score: 0 };
 
-            document.getElementById('podium-2-name').innerText = top2.name;
-            document.getElementById('podium-2-score').innerText = `${top2.score} pts`;
+                    document.getElementById('podium-1-name').innerText = top1.name;
+                    document.getElementById('podium-1-score').innerText = `${top1.score} pts`;
 
-            document.getElementById('podium-3-name').innerText = top3.name;
-            document.getElementById('podium-3-score').innerText = `${top3.score} pts`;
+                    document.getElementById('podium-2-name').innerText = top2.name;
+                    document.getElementById('podium-2-score').innerText = `${top2.score} pts`;
 
-            // Render Full Leaderboard List
-            const listContainer = document.getElementById('leaderboard-list');
-            listContainer.innerHTML = '';
+                    document.getElementById('podium-3-name').innerText = top3.name;
+                    document.getElementById('podium-3-score').innerText = `${top3.score} pts`;
 
-            competitors.forEach((comp, rank) => {
-                const item = document.createElement('div');
-                item.className = `p-3 rounded-xl flex items-center justify-between ${comp.isUser ? 'bg-cyan-500/20 border border-cyan-500/50 text-white font-bold' : 'glass-card text-slate-300'}`;
-                item.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <span class="w-6 h-6 rounded-full ${rank === 0 ? 'bg-yellow-500 text-brand-dark' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-bold text-xs">
-                            ${rank + 1}
-                        </span>
-                        <span>${comp.name} ${comp.isUser ? '<span class="text-[10px] text-brand-cyan uppercase ml-1">(Você)</span>' : ''}</span>
-                    </div>
-                    <span class="font-bold text-brand-cyan">${comp.score} pts</span>
-                `;
-                listContainer.appendChild(item);
-            });
+                    const listContainer = document.getElementById('leaderboard-list');
+                    listContainer.innerHTML = '';
+
+                    competitors.forEach((comp, rank) => {
+                        const isCurrent = comp.name === playerName;
+                        const item = document.createElement('div');
+                        item.className = `p-3 rounded-xl flex items-center justify-between ${isCurrent ? 'bg-cyan-500/20 border border-cyan-500/50 text-white font-bold' : 'glass-card text-slate-300'}`;
+                        item.innerHTML = `
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full ${rank === 0 ? 'bg-yellow-500 text-brand-dark' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-bold text-xs">
+                                    ${rank + 1}
+                                </span>
+                                <span>${comp.name} ${isCurrent ? '<span class="text-[10px] text-brand-cyan uppercase ml-1">(Você)</span>' : ''}</span>
+                            </div>
+                            <span class="font-bold text-brand-cyan">${comp.score} pts</span>
+                        `;
+                        listContainer.appendChild(item);
+                    });
+                });
+            }
         }
 
-        // FULLSCREEN TOGGLE
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => console.log(err));
