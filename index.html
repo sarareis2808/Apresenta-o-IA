@@ -655,9 +655,47 @@ Com base nisso:
                     <button onclick="startQuizGame()" class="px-6 py-3 bg-yellow-500 text-brand-dark font-bold text-xs rounded-xl hover:bg-yellow-400 transition">
                         <i class="fa-solid fa-rotate-right mr-1"></i> Jogar Novamente
                     </button>
-                    <button onclick="jumpToSlide(10)" class="px-6 py-3 glass-card text-white font-bold text-xs rounded-xl hover:bg-slate-800 transition">
-                        Ver Encerramento <i class="fa-solid fa-arrow-right ml-1"></i>
+                    <button onclick="jumpToSlide(9)" class="px-6 py-3 bg-brand-cyan text-brand-dark font-bold text-xs rounded-xl hover:bg-teal-300 transition">
+                        Ir para Validador de Prompts <i class="fa-solid fa-arrow-right ml-1"></i>
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: VALIDADOR INTERATIVO DE PROMPTS -->
+        <section class="slide flex-col w-full" id="slide-9">
+            <div class="glass-panel p-8 md:p-10 rounded-3xl w-full border border-cyan-500/30">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Desafio Prático Final</span>
+                        <h2 class="text-2xl md:text-3xl font-bold text-white">Validador de Prompts com IA</h2>
+                    </div>
+                    <div class="p-3 bg-cyan-500/10 rounded-xl text-brand-cyan">
+                        <i class="fa-solid fa-microchip text-2xl"></i>
+                    </div>
+                </div>
+                
+                <p class="text-slate-300 text-sm mb-4">
+                    Cole ou digite seu prompt abaixo para auditar sua planilha (colunas <strong>Data, Ticket, Status, Data de Conclusão</strong>). A IA analisará se o seu prompt contempla os pilares da fórmula ideal.
+                </p>
+
+                <textarea id="prompt-input" class="w-full h-36 bg-slate-950 p-4 rounded-xl border border-slate-700 text-sm text-white focus:outline-none focus:border-brand-cyan mb-4 font-mono leading-relaxed" placeholder="Escreva seu prompt aqui... Ex: Atue como especialista em Excel e crie uma validação para a planilha..."></textarea>
+                
+                <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                    <button onclick="analyzePrompt()" class="flex-1 py-3.5 bg-brand-cyan text-brand-dark font-extrabold text-sm rounded-xl hover:bg-teal-300 transition shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Avaliar Prompt na IA</span>
+                    </button>
+                    <button onclick="fillSamplePrompt()" class="px-5 py-3.5 glass-card text-slate-300 font-semibold text-xs rounded-xl hover:bg-slate-800 transition">
+                        Carregar Exemplo
+                    </button>
+                </div>
+
+                <div id="ai-response" class="p-5 rounded-2xl bg-slate-950/90 border border-slate-800 hidden">
+                    <div class="flex items-center gap-2 text-brand-cyan font-bold text-xs uppercase mb-3">
+                        <i class="fa-solid fa-robot"></i> Análise de Qualidade do Prompt
+                    </div>
+                    <div id="feedback-content" class="text-slate-200 text-xs md:text-sm space-y-2"></div>
                 </div>
             </div>
         </section>
@@ -857,8 +895,6 @@ Com base nisso:
             } else if (n === 8) {
                 document.getElementById('slide-ranking').classList.add('active');
                 renderRanking();
-            } else if (n >= 9) {
-                document.getElementById('slide-10').classList.add('active');
             } else {
                 const target = document.getElementById(`slide-${n}`);
                 if (target) target.classList.add('active');
@@ -1113,6 +1149,70 @@ Com base nisso:
                     listContainer.appendChild(item);
                 });
             });
+        }
+
+        // --- LÓGICA DO SLIDE 9: VALIDADOR DE PROMPTS ---
+        function fillSamplePrompt() {
+            document.getElementById('prompt-input').value = `Atue como especialista em Excel e auditoria de dados. 
+Contexto: Tenho uma planilha com as colunas Data, Ticket, Status e Data de Conclusão.
+Tarefa: Crie uma solução para identificar linhas com campos vazios e validar se a Data de Conclusão está preenchida quando o Status não está como 'Concluído'.
+Formato: Apresente o código/fórmula e o passo a passo formatado.`;
+        }
+
+        function analyzePrompt() {
+            const prompt = document.getElementById('prompt-input').value.toLowerCase();
+            const feedbackDiv = document.getElementById('ai-response');
+            const feedbackContent = document.getElementById('feedback-content');
+            
+            feedbackDiv.classList.remove('hidden');
+            let score = 0;
+            let feedback = [];
+
+            const checks = [
+                { 
+                    id: 'persona',
+                    keyword: ['atue', 'como', 'você é', 'especialista', 'papel'], 
+                    ok: "✅ <strong>Papel/Persona:</strong> Definido com clareza.", 
+                    err: "❌ <strong>Papel/Persona:</strong> Não identificado. Tente adicionar 'Atue como...'." 
+                },
+                { 
+                    id: 'contexto',
+                    keyword: ['data', 'ticket', 'status', 'conclusão', 'coluna', 'planilha'], 
+                    ok: "✅ <strong>Contexto & Dados:</strong> Mencionou os campos críticos da planilha.", 
+                    err: "❌ <strong>Contexto:</strong> Faltam detalhes sobre os dados (Ex: colunas Data, Ticket, Status, Conclusão)." 
+                },
+                { 
+                    id: 'objetivo',
+                    keyword: ['validar', 'vazio', 'branco', 'inconsistência', 'auditar', 'concluído', 'identifique'], 
+                    ok: "✅ <strong>Regra de Negócio:</strong> Mencionou as regras para encontrar inconsistências/vazios.", 
+                    err: "❌ <strong>Regra de Negócio:</strong> Especifique o que a IA deve buscar (campos em branco, conflitos de status)." 
+                },
+                { 
+                    id: 'formato',
+                    keyword: ['passo a passo', 'código', 'fórmula', 'vba', 'tabela', 'destacar', 'formato'], 
+                    ok: "✅ <strong>Formato da Resposta:</strong> Especificou como deseja receber a solução.", 
+                    err: "❌ <strong>Formato:</strong> Peça explicitamente o formato desejado (código, fórmula, passo a passo)." 
+                }
+            ];
+
+            checks.forEach(check => {
+                if (check.keyword.some(k => prompt.includes(k))) {
+                    score++;
+                    feedback.push(`<p class="text-emerald-400">${check.ok}</p>`);
+                } else {
+                    feedback.push(`<p class="text-red-400">${check.err}</p>`);
+                }
+            });
+
+            if (score === 4) {
+                feedback.push("<div class='mt-3 p-3 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-bold text-center'>✨ Prompt Excelente! A IA conseguirá gerar uma macro/fórmula perfeita de auditoria sem margem para erros.</div>");
+            } else if (score >= 2) {
+                feedback.push("<div class='mt-3 p-3 rounded-xl bg-yellow-500/20 border border-yellow-400/40 text-yellow-300 font-bold text-center'>⚠️ Prompt Razoável! A IA pode responder, mas poderá pedir esclarecimentos ou gerar uma resposta genérica nos pontos em vermelho.</div>");
+            } else {
+                feedback.push("<div class='mt-3 p-3 rounded-xl bg-red-500/20 border border-red-400/40 text-red-300 font-bold text-center'>🚨 Prompt Incompleto! Aplique a estrutura do Módulo 02 para garantir um resultado útil.</div>");
+            }
+
+            feedbackContent.innerHTML = feedback.join('');
         }
 
         function toggleFullscreen() {
