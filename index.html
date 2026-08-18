@@ -1,4 +1,4 @@
-0<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -15,29 +15,20 @@
     <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- FIREBASE SDKs (Compatibilidade para uso direto no navegador) -->
+    <!-- FIREBASE SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
     <script>
-        // CONFIGURAÇÃO DO FIREBASE (Cole aqui as suas chaves do Firebase Console)
         const firebaseConfig = {
             databaseURL: "https://apresenta-o-ia-default-rtdb.firebaseio.com",
-            // apiKey: "SUA_API_KEY",
-            // authDomain: "apresenta-o-ia.firebaseapp.com",
-            // projectId: "apresenta-o-ia",
-            // storageBucket: "apresenta-o-ia.appspot.com",
-            // messagingSenderId: "1234567890",
-            // appId: "1:1234567890:web:abcdef123456"
         };
 
-        // Inicializa o Firebase
-        if (!firebase.apps.length) {
+        if (typeof firebase !== 'undefined' && !firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
-        const database = firebase.database();
+        const database = (typeof firebase !== 'undefined' && firebase.apps.length) ? firebase.database() : null;
 
-        // Configurações do Tailwind
         tailwind.config = {
             theme: {
                 extend: {
@@ -468,24 +459,30 @@
                     </div>
                 </div>
 
-                <div class="relative bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                            <i class="fa-solid fa-copy mr-1 text-brand-cyan"></i> Modelo de Prompt para Pedir VBA
-                        </span>
-                        <button onclick="copyMacroPrompt()" class="px-3 py-1 bg-brand-cyan/20 hover:bg-brand-cyan/30 text-brand-cyan text-xs font-bold rounded-lg border border-cyan-500/40 transition">
+                <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border-2 border-brand-cyan shadow-xl shadow-cyan-500/10 mb-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-brand-cyan text-base"></i>
+                            <span class="text-xs font-extrabold text-brand-cyan uppercase tracking-wider">
+                                Prompt Pronto para Copiar e Testar na IA
+                            </span>
+                        </div>
+                        <button onclick="copyMacroPrompt()" class="px-4 py-1.5 bg-brand-cyan hover:bg-teal-300 text-brand-dark font-extrabold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-copy"></i>
                             <span id="copy-text">Copiar Prompt</span>
                         </button>
                     </div>
-                    <pre id="macro-prompt-code" class="text-xs font-mono text-slate-300 whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto pr-2">
+                    <p id="macro-prompt-code" class="text-xs md:text-sm font-mono text-slate-100 bg-slate-950/90 p-4 rounded-xl border border-slate-800 leading-relaxed">
 "Analise esta transcrição da gravação de tela. Também estou enviando imagens das planilhas. Identifique: onde clico, quais filtros aplico, colunas utilizadas e fórmulas.
+
 Com base nisso:
 1. Gere uma macro VBA que reproduza exatamente o processo;
 2. Comente o código para facilitação de manutenção;
-3. Explique como instalar no Excel e criar o botão de disparo."</pre>
+3. Explique como instalar no Excel e criar o botão de disparo."
+                    </p>
                 </div>
 
-                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
                         <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-cyan-500/10">
                             Passo 1
@@ -598,7 +595,7 @@ Com base nisso:
             </div>
         </section>
 
-        <!-- SLIDE 8: FINAL LEADERBOARD (INTEGRADO AO FIREBASE) -->
+        <!-- SLIDE 8: FINAL LEADERBOARD -->
         <section class="slide flex-col w-full" id="slide-ranking">
             <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
                 <div class="text-center mb-6">
@@ -895,11 +892,16 @@ Com base nisso:
         }
 
         function copyMacroPrompt() {
-            const code = document.getElementById('macro-prompt-code').innerText;
-            navigator.clipboard.writeText(code);
-            const copyBtn = document.getElementById('copy-text');
-            copyBtn.innerText = "Copiado! ✓";
-            setTimeout(() => { copyBtn.innerText = "Copiar Prompt"; }, 2000);
+            const codeElement = document.getElementById('macro-prompt-code');
+            const textToCopy = codeElement.innerText || codeElement.textContent;
+
+            navigator.clipboard.writeText(textToCopy.trim()).then(() => {
+                const copyBtn = document.getElementById('copy-text');
+                if (copyBtn) {
+                    copyBtn.innerText = "Copiado! ✓";
+                    setTimeout(() => { copyBtn.innerText = "Copiar Prompt"; }, 2000);
+                }
+            });
         }
 
         function startQuizGame() {
@@ -1051,7 +1053,6 @@ Com base nisso:
             }
         }
 
-        // INTEGRAÇÃO REALTIME COM O FIREBASE NO RANKING
         function renderRanking() {
             confetti({
                 particleCount: 80,
@@ -1059,59 +1060,59 @@ Com base nisso:
                 origin: { y: 0.6 }
             });
 
-            // 1. Grava no nó "ranking" usando o nome limpo do usuário como chave
-            if (database) {
-                const safeKey = playerName.replace(/[.#$\[\]]/g, "_");
-                const playerRef = database.ref('ranking/' + safeKey);
-                playerRef.set({
-                    name: playerName,
-                    score: score,
-                    updatedAt: Date.now()
-                });
-
-                // 2. Escuta atualizações do nó "ranking" em tempo real
-                database.ref('ranking').on('value', (snapshot) => {
-                    const competitors = [];
-                    snapshot.forEach((child) => {
-                        competitors.push(child.val());
-                    });
-
-                    // Ordena do maior para o menor placar
-                    competitors.sort((a, b) => b.score - a.score);
-
-                    const top1 = competitors[0] || { name: "-", score: 0 };
-                    const top2 = competitors[1] || { name: "-", score: 0 };
-                    const top3 = competitors[2] || { name: "-", score: 0 };
-
-                    document.getElementById('podium-1-name').innerText = top1.name;
-                    document.getElementById('podium-1-score').innerText = `${top1.score} pts`;
-
-                    document.getElementById('podium-2-name').innerText = top2.name;
-                    document.getElementById('podium-2-score').innerText = `${top2.score} pts`;
-
-                    document.getElementById('podium-3-name').innerText = top3.name;
-                    document.getElementById('podium-3-score').innerText = `${top3.score} pts`;
-
-                    const listContainer = document.getElementById('leaderboard-list');
-                    listContainer.innerHTML = '';
-
-                    competitors.forEach((comp, rank) => {
-                        const isCurrent = comp.name === playerName;
-                        const item = document.createElement('div');
-                        item.className = `p-3 rounded-xl flex items-center justify-between ${isCurrent ? 'bg-cyan-500/20 border border-cyan-500/50 text-white font-bold' : 'glass-card text-slate-300'}`;
-                        item.innerHTML = `
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full ${rank === 0 ? 'bg-yellow-500 text-brand-dark' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-bold text-xs">
-                                    ${rank + 1}
-                                </span>
-                                <span>${comp.name} ${isCurrent ? '<span class="text-[10px] text-brand-cyan uppercase ml-1">(Você)</span>' : ''}</span>
-                            </div>
-                            <span class="font-bold text-brand-cyan">${comp.score} pts</span>
-                        `;
-                        listContainer.appendChild(item);
-                    });
-                });
+            if (!database) {
+                console.warn("Banco de dados não está disponível no momento.");
+                return;
             }
+
+            const safeKey = playerName.replace(/[.#$\[\]]/g, "_");
+            const playerRef = database.ref('ranking/' + safeKey);
+            playerRef.set({
+                name: playerName,
+                score: score,
+                updatedAt: Date.now()
+            });
+
+            database.ref('ranking').on('value', (snapshot) => {
+                const competitors = [];
+                snapshot.forEach((child) => {
+                    competitors.push(child.val());
+                });
+
+                competitors.sort((a, b) => b.score - a.score);
+
+                const top1 = competitors[0] || { name: "-", score: 0 };
+                const top2 = competitors[1] || { name: "-", score: 0 };
+                const top3 = competitors[2] || { name: "-", score: 0 };
+
+                document.getElementById('podium-1-name').innerText = top1.name;
+                document.getElementById('podium-1-score').innerText = `${top1.score} pts`;
+
+                document.getElementById('podium-2-name').innerText = top2.name;
+                document.getElementById('podium-2-score').innerText = `${top2.score} pts`;
+
+                document.getElementById('podium-3-name').innerText = top3.name;
+                document.getElementById('podium-3-score').innerText = `${top3.score} pts`;
+
+                const listContainer = document.getElementById('leaderboard-list');
+                listContainer.innerHTML = '';
+
+                competitors.forEach((comp, rank) => {
+                    const isCurrent = comp.name === playerName;
+                    const item = document.createElement('div');
+                    item.className = `p-3 rounded-xl flex items-center justify-between ${isCurrent ? 'bg-cyan-500/20 border border-cyan-500/50 text-white font-bold' : 'glass-card text-slate-300'}`;
+                    item.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full ${rank === 0 ? 'bg-yellow-500 text-brand-dark' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-bold text-xs">
+                                ${rank + 1}
+                            </span>
+                            <span>${comp.name} ${isCurrent ? '<span class="text-[10px] text-brand-cyan uppercase ml-1">(Você)</span>' : ''}</span>
+                        </div>
+                        <span class="font-bold text-brand-cyan">${comp.score} pts</span>
+                    `;
+                    listContainer.appendChild(item);
+                });
+            });
         }
 
         function toggleFullscreen() {
@@ -1122,98 +1123,5 @@ Com base nisso:
             }
         }
     </script>
-
-    <!-- SLIDE 5: SOLICITANDO MACROS -->
-<section class="slide flex-col w-full" id="slide-5">
-    <div class="glass-panel p-8 md:p-10 rounded-3xl w-full border border-cyan-500/20">
-        <div class="flex items-center justify-between mb-6">
-            <div>
-                <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 03</span>
-                <h2 class="text-3xl font-bold text-white">Como solicitar uma Macro para a IA?</h2>
-            </div>
-            <div class="p-2.5 bg-indigo-500/10 rounded-xl text-indigo-400">
-                <i class="fa-solid fa-file-code text-2xl"></i>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-6">
-            <div class="glass-card p-3 rounded-xl border border-slate-700">
-                <span class="text-xs font-bold text-brand-cyan">1. Mapeie</span>
-                <p class="text-xs text-slate-300 mt-1">Defina o resultado e etapas repetitivas.</p>
-            </div>
-            <div class="glass-card p-3 rounded-xl border border-slate-700">
-                <span class="text-xs font-bold text-teal-300">2. Grave</span>
-                <p class="text-xs text-slate-300 mt-1">Explique colunas, abas e filtros passo a passo.</p>
-            </div>
-            <div class="glass-card p-3 rounded-xl border border-slate-700">
-                <span class="text-xs font-bold text-yellow-300">3. Evidências</span>
-                <p class="text-xs text-slate-300 mt-1">Anexe transcrição, prints e o prompt detalhado.</p>
-            </div>
-            <div class="glass-card p-3 rounded-xl border border-slate-700">
-                <span class="text-xs font-bold text-purple-300">4. Teste</span>
-                <p class="text-xs text-slate-300 mt-1">Execute o código VBA inicial com poucas linhas.</p>
-            </div>
-            <div class="glass-card p-3 rounded-xl border border-slate-700">
-                <span class="text-xs font-bold text-pink-300">5. Refine</span>
-                <p class="text-xs text-slate-300 mt-1">Erros acontecem. Ajuste e interaja com a IA!</p>
-            </div>
-        </div>
-
-        <!-- CAIXA DE PROMPT EM DESTAQUE PARA TESTE COM A IA -->
-        <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border-2 border-brand-cyan shadow-xl shadow-cyan-500/10 mb-6">
-            <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-wand-magic-sparkles text-brand-cyan text-base"></i>
-                    <span class="text-xs font-extrabold text-brand-cyan uppercase tracking-wider">
-                        Prompt Pronto para Copiar e Testar na IA
-                    </span>
-                </div>
-                <button onclick="copyMacroPrompt()" class="px-4 py-1.5 bg-brand-cyan hover:bg-teal-300 text-brand-dark font-extrabold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-copy"></i>
-                    <span id="copy-text">Copiar Prompt</span>
-                </button>
-            </div>
-            <p id="macro-prompt-code" class="text-xs md:text-sm font-mono text-slate-100 bg-slate-950/90 p-4 rounded-xl border border-slate-800 leading-relaxed">
-"Analise esta transcrição da gravação de tela. Também estou enviando imagens das planilhas. Identifique: onde clico, quais filtros aplico, colunas utilizadas e fórmulas.<br><br>
-Com base nisso:<br>
-1. Gere uma macro VBA que reproduza exatamente o processo;<br>
-2. Comente o código para facilitação de manutenção;<br>
-3. Explique como instalar no Excel e criar o botão de disparo."
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-cyan-500/10">
-                    Passo 1
-                </span>
-                <img src="imagem1.jpg" alt="Passo 1" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-            </div>
-
-            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-teal-500/10">
-                    Passo 2
-                </span>
-                <img src="imagem2.png" alt="Passo 2" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-            </div>
-
-            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-yellow-500/10">
-                    Passo 3
-                </span>
-                <img src="imagem3.png" alt="Passo 3" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-            </div>
-
-            <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-purple-500/10">
-                    Passo 4
-                </span>
-                <img src="imagem4.png" alt="Passo 4" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-            </div>
-        </div>
-    </div>
-</section>
-
 </body>
 </html>
-
