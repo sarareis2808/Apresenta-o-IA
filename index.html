@@ -152,7 +152,7 @@
         <div class="hidden md:flex items-center space-x-3">
             <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Slide <span id="current-slide-num" class="text-brand-cyan">1</span> de <span id="total-slides-num">11</span></span>
             <div class="w-36 h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
-                <div id="progress-bar" class="h-full bg-accent-gradient transition-all duration-300" style="width: 10%;"></div>
+                <div id="progress-bar" class="h-full bg-accent-gradient transition-all duration-300" style="width: 9.09%;"></div>
             </div>
         </div>
 
@@ -160,7 +160,7 @@
             <button onclick="toggleAudio()" id="audio-btn" class="p-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Mutar/Ativar Sons">
                 <i class="fa-solid fa-volume-high" id="audio-icon"></i>
             </button>
-            <button onclick="jumpToSlide(6)" class="px-3.5 py-2 rounded-lg bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 hover:bg-cyan-500/30 font-semibold text-xs transition flex items-center gap-2">
+            <button onclick="jumpToSlide(8)" class="px-3.5 py-2 rounded-lg bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 hover:bg-cyan-500/30 font-semibold text-xs transition flex items-center gap-2">
                 <i class="fa-solid fa-gamepad"></i>
                 <span>Ir para Quiz</span>
             </button>
@@ -177,7 +177,7 @@
         <section class="slide active flex-col items-center justify-center text-center w-full py-8" id="slide-1">
             <div class="glass-panel p-8 md:p-14 rounded-3xl max-w-4xl w-full border border-cyan-500/20 shadow-2xl relative overflow-hidden">
                 <div class="absolute -right-10 -top-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl"></div>
-                <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/10 text-brand-cyan border border-cyan-500/30 text-xs font-bold tracking-widest uppercase mb-6">Capgemini 2026</span>
+                <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/10 text-brand-cyan border border-cyan-500/30 text-xs font-bold tracking-widest uppercase mb-6">Treinamento Interativo 2026</span>
                 
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
                     IA Na <span class="bg-gradient-to-r from-brand-cyan via-teal-300 to-blue-500 bg-clip-text text-transparent">Prática</span>
@@ -217,7 +217,7 @@
                 
                 <div class="mt-8 pt-6 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
                     <span>Apresentadores: <strong class="text-slate-200">Eduana Schlickmann & Sara Reis</strong></span>
-                    <span>Confidencial © Capgemini</span>
+                    <span>IA na Prática</span>
                 </div>
             </div>
         </section>
@@ -235,8 +235,18 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div onclick="jumpToSlide(3)" class="glass-card p-6 rounded-2xl cursor-pointer hover:border-cyan-500 flex items-start gap-4 group">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-brand-cyan font-bold text-lg group-hover:bg-brand-cyan group-hover:text-brand-dark transition">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/20 border border-pink-500/30 flex items-center justify-center text-pink-300 font-bold text-lg group-hover:bg-pink-400 group-hover:text-brand-dark transition">
                             01
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition mb-1">Mitos e Verdades sobre Prompts</h3>
+                            <p class="text-sm text-slate-400">O que é mito e o que é verdade nas boas práticas de prompt engineering.</p>
+                        </div>
+                    </div>
+
+                    <div onclick="jumpToSlide(4)" class="glass-card p-6 rounded-2xl cursor-pointer hover:border-cyan-500 flex items-start gap-4 group">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-brand-cyan font-bold text-lg group-hover:bg-brand-cyan group-hover:text-brand-dark transition">
+                            02
                         </div>
                         <div class="flex-1">
                             <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition mb-1">IA no Nosso Dia a Dia</h3>
@@ -244,55 +254,45 @@
                         </div>
                     </div>
 
-                    <div onclick="jumpToSlide(4)" class="glass-card p-6 rounded-2xl cursor-pointer hover:border-cyan-500 flex items-start gap-4 group">
-                        <div class="w-12 h-12 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-lg group-hover:bg-teal-400 group-hover:text-brand-dark transition">
-                            02
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition mb-1">Criar PROMPTS Eficientes</h3>
-                            <p class="text-sm text-slate-400">Como saber conversar com a IA utilizando a fórmula dos 5 elementos cruciais.</p>
-                        </div>
-                    </div>
-
                     <div onclick="jumpToSlide(5)" class="glass-card p-6 rounded-2xl cursor-pointer hover:border-cyan-500 flex items-start gap-4 group">
-                        <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold text-lg group-hover:bg-indigo-400 group-hover:text-brand-dark transition">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-lg group-hover:bg-teal-400 group-hover:text-brand-dark transition">
                             03
                         </div>
                         <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition mb-1">Como Pedir uma Macro para a IA</h3>
-                            <p class="text-sm text-slate-400">Mapeamento, gravações de tela e o prompt ideal para gerar VBA perfeito.</p>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition mb-1">Criar PROMPTS Eficientes</h3>
+                            <p class="text-sm text-slate-400">Como saber conversar com a IA utilizando os 4 elementos cruciais.</p>
                         </div>
                     </div>
 
-                    <div onclick="jumpToSlide(6)" class="glass-card p-6 rounded-2xl cursor-pointer border-2 border-yellow-500/30 bg-yellow-500/5 hover:border-yellow-400 flex items-start gap-4 group">
+                    <div onclick="jumpToSlide(6)" class="glass-card p-6 rounded-2xl cursor-pointer hover:border-cyan-500 flex items-start gap-4 group">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold text-lg group-hover:bg-indigo-400 group-hover:text-brand-dark transition">
+                            04
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition mb-1">Como Pedir uma Macro para a IA</h3>
+                            <p class="text-sm text-slate-400">Mapeamento, regras e o prompt ideal para gerar VBA perfeito.</p>
+                        </div>
+                    </div>
+
+                    <div onclick="jumpToSlide(7)" class="glass-card p-6 rounded-2xl cursor-pointer border-2 border-yellow-500/30 bg-yellow-500/5 hover:border-yellow-400 flex items-start gap-4 group md:col-span-2">
                         <div class="w-12 h-12 rounded-xl bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-bold text-lg group-hover:bg-yellow-400 group-hover:text-brand-dark transition">
                             <i class="fa-solid fa-trophy"></i>
                         </div>
                         <div class="flex-1">
-                            <h3 class="text-lg font-bold text-yellow-300 group-hover:text-yellow-200 transition mb-1">Desafio Interativo (Quiz com Timer)</h3>
-                            <p class="text-sm text-slate-300">Competição de prompts em tempo real com ranking de líderes no final!</p>
-                        </div>
-                    </div>
-
-                    <div onclick="jumpToSlide(10)" class="glass-card p-6 rounded-2xl cursor-pointer hover:border-cyan-500 flex items-start gap-4 group md:col-span-2">
-                        <div class="w-12 h-12 rounded-xl bg-pink-500/20 border border-pink-500/30 flex items-center justify-center text-pink-300 font-bold text-lg group-hover:bg-pink-400 group-hover:text-brand-dark transition">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white group-hover:text-brand-cyan transition mb-1">Mitos e Verdades sobre Prompts</h3>
-                            <p class="text-sm text-slate-400">O que é mito e o que é verdade nas boas práticas de prompt engineering.</p>
+                            <h3 class="text-lg font-bold text-yellow-300 group-hover:text-yellow-200 transition mb-1">Desafio de Prompt & Quiz Interativo (1m30s por pergunta)</h3>
+                            <p class="text-sm text-slate-300">Prática real de prompts + competição em tempo real com ranking de líderes no final!</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 3: IA NO DIA A DIA -->
-        <section class="slide flex-col w-full" id="slide-10">
+        <!-- SLIDE 3: MITOS E VERDADES SOBRE PROMPTS (Mover para Slide 3) -->
+        <section class="slide flex-col w-full" id="slide-3">
             <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-cyan-500/20">
                 <div class="flex items-center justify-between mb-6">
                     <div>
-                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 04</span>
+                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 01</span>
                         <h2 class="text-2xl md:text-3xl font-bold text-white">Mitos e Verdades sobre Prompts</h2>
                     </div>
                     <div class="p-2.5 bg-pink-500/10 rounded-xl text-pink-300">
@@ -314,12 +314,12 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                             <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1"> Dica <span class="text-slate-500">[01:04]</span></span>
-                                <p class="text-slate-300 leading-relaxed">Prompts longos e poluídos podem piorar as respostas; o ideal é manter em torno de 250 palavras e ser direto.</p>
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica <span class="text-slate-500">[Boas Práticas]</span></span>
+                                <p class="text-slate-300 leading-relaxed">Prompts longos e poluídos podem piorar as respostas; o ideal é manter a clareza e ser direto ao ponto.</p>
                             </div>
                             <div class="bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/20">
                                 <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">Por quê</span>
-                                <p class="text-slate-300 leading-relaxed">Mesmo com janelas de contexto gigantes, instruções prolixas geram ruído. Ser direto e focar no necessário melhora a precisão.</p>
+                                <p class="text-slate-300 leading-relaxed">Instruções prolixas geram ruído na IA. Ser direto e focar no necessário melhora significativamente a precisão.</p>
                             </div>
                         </div>
                     </div>
@@ -337,12 +337,12 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                             <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica<span class="text-slate-500">[01:25]</span></span>
-                                <p class="text-slate-300 leading-relaxed">Fornecer exemplos ajuda a definir o formato, mas passar de 3 exemplos traz retornos decrescentes ou pode piorar a precisão.</p>
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica <span class="text-slate-500">[Exemplos]</span></span>
+                                <p class="text-slate-300 leading-relaxed">Fornecer 2 a 3 exemplos práticos ajuda imensamente a definir o formato esperado na resposta.</p>
                             </div>
                             <div class="bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/20">
                                 <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">Por quê</span>
-                                <p class="text-slate-300 leading-relaxed">2 a 3 exemplos (few-shot) já ensinam o padrão de formatação, sem consumir contexto desnecessário.</p>
+                                <p class="text-slate-300 leading-relaxed">2 a 3 exemplos ensinam o padrão de formatação desejado sem poluir o contexto do modelo.</p>
                             </div>
                         </div>
                     </div>
@@ -352,7 +352,7 @@
                         <div class="flex items-start justify-between gap-3 mb-2 flex-wrap">
                             <h3 class="text-sm md:text-base font-bold text-white flex items-center gap-2">
                                 <span class="w-6 h-6 rounded-lg bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-300 text-xs font-bold shrink-0">3</span>
-                                Atribuição de Personas ("Atue como um especialista...")
+                                Atribuição de Personas ("Atue como especialista...")
                             </h3>
                             <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-extrabold uppercase tracking-wider">
                                 <i class="fa-solid fa-check mr-1"></i> Verdade
@@ -360,12 +360,12 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                             <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica<span class="text-slate-500">[01:41]</span></span>
-                                <p class="text-slate-300 leading-relaxed">Definir uma persona não aumenta a precisão factual da IA, servindo apenas para calibrar tom de voz, estilo ou piadas.</p>
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica <span class="text-slate-500">[Estilo e Tom]</span></span>
+                                <p class="text-slate-300 leading-relaxed">A persona ajusta o tom de voz, vocabulário e estilo da resposta para a sua audiência final.</p>
                             </div>
                             <div class="bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/20">
                                 <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">Por quê</span>
-                                <p class="text-slate-300 leading-relaxed">Metanálises mostram que dizer "você é advogado com 20 anos" não torna os fatos jurídicos mais corretos; muda vocabulário e formalidade.</p>
+                                <p class="text-slate-300 leading-relaxed">Definir o papel calibra a linguagem do texto para corresponder exatamente ao público pretendido.</p>
                             </div>
                         </div>
                     </div>
@@ -375,7 +375,7 @@
                         <div class="flex items-start justify-between gap-3 mb-2 flex-wrap">
                             <h3 class="text-sm md:text-base font-bold text-white flex items-center gap-2">
                                 <span class="w-6 h-6 rounded-lg bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 text-xs font-bold shrink-0">4</span>
-                                Modelos Rápidos vs. Modelos Reflexivos (Chain of Thought)
+                                Modelos Rápidos vs. Modelos Reflexivos (Raciocínio)
                             </h3>
                             <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-extrabold uppercase tracking-wider">
                                 <i class="fa-solid fa-check mr-1"></i> Verdade
@@ -383,12 +383,12 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                             <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica<span class="text-slate-500">[02:27]</span></span>
-                                <p class="text-slate-300 leading-relaxed">Pedir para "pensar passo a passo" é essencial em modelos padrão/rápidos, mas em modelos de raciocínio profundo isso já acontece "de fábrica".</p>
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica <span class="text-slate-500">[Raciocínio Passo a Passo]</span></span>
+                                <p class="text-slate-300 leading-relaxed">Pedir para "pensar passo a passo" orienta a IA a resolver problemas lógicos em etapas estruturadas.</p>
                             </div>
                             <div class="bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/20">
                                 <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">Por quê</span>
-                                <p class="text-slate-300 leading-relaxed">Modelos reflexivos já usam raciocínio encadeado na arquitetura básica. Forçar textos longos neles só gera redundância.</p>
+                                <p class="text-slate-300 leading-relaxed">Subdividir problemas complexos evita alucinações e garante resultados muito mais coerentes.</p>
                             </div>
                         </div>
                     </div>
@@ -406,12 +406,12 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                             <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica<span class="text-slate-500">[03:37]</span></span>
-                                <p class="text-slate-300 leading-relaxed">Pedir muitas coisas de uma vez em modelos rápidos aumenta a chance de erro/esquecimento. O ideal é dividir por etapas ou usar modelos de raciocínio profundo para tarefas compostas.</p>
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Dica <span class="text-slate-500">[Divisão de Tarefas]</span></span>
+                                <p class="text-slate-300 leading-relaxed">Para solicitações muito extensas, divida o fluxo em prompts sequenciais para garantir atenção em cada detalhe.</p>
                             </div>
                             <div class="bg-emerald-500/5 p-3 rounded-xl border border-emerald-500/20">
                                 <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">Por quê</span>
-                                <p class="text-slate-300 leading-relaxed">O acúmulo de instruções em um único comando gera perda de atenção em modelos padrão.</p>
+                                <p class="text-slate-300 leading-relaxed">Prompts sequenciais garantem maior rigor técnico e evitam que regras secundárias sejam omitidas.</p>
                             </div>
                         </div>
                     </div>
@@ -420,16 +420,18 @@
                 <div class="mt-6 p-4 rounded-2xl bg-gradient-to-r from-pink-950/60 via-slate-900 to-blue-950/60 border border-pink-500/30 text-center">
                     <p class="text-xs md:text-sm text-slate-200">
                         <i class="fa-solid fa-lightbulb text-yellow-300 mr-1"></i>
-                        <strong class="text-white">Resumo:</strong> seja direto, use poucos exemplos, defina persona só para tom, e adapte a profundidade do prompt ao tipo de modelo e à complexidade da tarefa.
+                        <strong class="text-white">Resumo:</strong> Seja claro, forneça contexto, especifique formato, dê detalhes e estruture tarefas complexas em etapas.
                     </p>
                 </div>
             </div>
         </section>
-        <section class="slide flex-col w-full" id="slide-3">
+
+        <!-- SLIDE 4: IA NO DIA A DIA -->
+        <section class="slide flex-col w-full" id="slide-4">
             <div class="glass-panel p-8 md:p-10 rounded-3xl w-full border border-cyan-500/20">
                 <div class="flex items-center justify-between mb-6">
                     <div>
-                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 01</span>
+                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 02</span>
                         <h2 class="text-3xl font-bold text-white">Como a IA pode ajudar no dia a dia?</h2>
                     </div>
                     <div class="p-3 bg-cyan-500/10 rounded-xl text-brand-cyan">
@@ -468,9 +470,9 @@
                             <div class="flex items-center gap-2 text-brand-cyan text-xs font-bold uppercase mb-2">
                                 <i class="fa-solid fa-lightbulb"></i> Exemplo Prático de Rotina
                             </div>
-                            <h4 class="font-bold text-white text-base mb-2">Cenário: "Voltei de férias com 200 e-mails pendentes"</h4>
+                            <h4 class="font-bold text-white text-base mb-2">Cenário: "Voltei de férias com centenas de e-mails pendentes"</h4>
                             <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                                <strong class="text-teal-300">Como a IA apoia:</strong> Analisa a caixa de entrada, identifica urgências, sintetiza threads complexas e gera rascunhos de resposta em segundos.
+                                <strong class="text-teal-300">Como a IA apoia:</strong> Analisa a caixa de entrada, identifica urgências, sintetiza conversas complexas e gera rascunhos de resposta em segundos.
                             </p>
                         </div>
 
@@ -494,426 +496,419 @@
             </div>
         </section>
 
-        <!-- SLIDE 4: ESTRUTURANDO PROMPTS -->
-        <section class="slide flex-col w-full" id="slide-4">
-            <div class="glass-panel p-8 md:p-10 rounded-3xl w-full border border-cyan-500/20">
-                <div class="flex items-center justify-between mb-6">
-                    <div>
-                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 02</span>
-                        <h2 class="text-3xl font-bold text-white">Criar PROMPTS: Como conversar com a IA?</h2>
-                    </div>
-                    <div class="px-3 py-1 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/30 text-xs font-bold">
-                        Fórmula de Ouro
-                    </div>
-                </div>
-
-                <div class="p-4 rounded-2xl bg-gradient-to-r from-blue-950 to-slate-900 border border-brand-cyan/40 text-center mb-6">
-                    <p class="text-sm font-bold text-white tracking-wide">
-                        <span class="text-brand-cyan">Contexto</span> + 
-                        <span class="text-teal-300">Objetivo</span> + 
-                        <span class="text-yellow-300">Público</span> + 
-                        <span class="text-purple-300">Formato</span> + 
-                        <span class="text-pink-300">Detalhes</span> = 
-                        <span class="text-green-400">Melhores Resultados!</span>
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-2 text-xs">
-                        <div class="grid grid-cols-3 p-2 bg-slate-900/80 rounded-lg text-slate-400 font-bold uppercase">
-                            <span>Elemento</span>
-                            <span>O que informar?</span>
-                            <span>Exemplo</span>
-                        </div>
-                        <div class="grid grid-cols-3 p-2.5 glass-card rounded-lg items-center">
-                            <span class="font-bold text-brand-cyan">Contexto</span>
-                            <span class="text-slate-300">Explique a situação</span>
-                            <span class="text-slate-400 italic">"Comunicar atraso na entrega..."</span>
-                        </div>
-                        <div class="grid grid-cols-3 p-2.5 glass-card rounded-lg items-center">
-                            <span class="font-bold text-teal-300">Objetivo</span>
-                            <span class="text-slate-300">O que espera da IA</span>
-                            <span class="text-slate-400 italic">"Criar um e-mail profissional."</span>
-                        </div>
-                        <div class="grid grid-cols-3 p-2.5 glass-card rounded-lg items-center">
-                            <span class="font-bold text-yellow-300">Público</span>
-                            <span class="text-slate-300">Quem receberá</span>
-                            <span class="text-slate-400 italic">"Destinatário é cliente VIP."</span>
-                        </div>
-                        <div class="grid grid-cols-3 p-2.5 glass-card rounded-lg items-center">
-                            <span class="font-bold text-purple-300">Formato</span>
-                            <span class="text-slate-300">Especifique a saída</span>
-                            <span class="text-slate-400 italic">"E-mail, Tabela, PDF, Excel..."</span>
-                        </div>
-                        <div class="grid grid-cols-3 p-2.5 glass-card rounded-lg items-center">
-                            <span class="font-bold text-pink-300">Detalhes</span>
-                            <span class="text-slate-300">Tom, tamanho, regras</span>
-                            <span class="text-slate-400 italic">"Tom formal, até 200 palavras."</span>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3">
-                        <div class="p-4 rounded-xl bg-red-500/10 border border-red-500/30">
-                            <h4 class="text-xs font-bold text-red-400 uppercase tracking-wider mb-1">
-                                <i class="fa-solid fa-xmark mr-1"></i> Evite Prompts Fracos
-                            </h4>
-                            <p class="text-xs text-slate-300 italic mb-2">"Crie um e-mail sobre atraso na entrega por conta do problema X."</p>
-                            <span class="text-[11px] text-red-300/80">Motivo: Gera respostas genéricas e sem tom adequado.</span>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-                            <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">
-                                <i class="fa-solid fa-check mr-1"></i> Prompt Estruturado Perfeito
-                            </h4>
-                            <p class="text-xs text-slate-200 leading-relaxed font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                                "Crie um e-mail profissional para um cliente informando atraso na entrega devido a problemas de transporte. Explique o ocorrido de forma transparente, informe a nova previsão de entrega e mantenha um tom cordial."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 5: SOLICITANDO MACROS -->
+        <!-- SLIDE 5: ESTRUTURANDO PROMPTS -->
         <section class="slide flex-col w-full" id="slide-5">
             <div class="glass-panel p-8 md:p-10 rounded-3xl w-full border border-cyan-500/20">
                 <div class="flex items-center justify-between mb-6">
                     <div>
                         <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 03</span>
-                        <h2 class="text-3xl font-bold text-white">Como solicitar uma Macro para a IA?</h2>
+                        <h2 class="text-3xl font-bold text-white">Criar PROMPTS: Como conversar com a IA?</h2>
                     </div>
-                    <div class="p-2.5 bg-indigo-500/10 rounded-xl text-indigo-400">
-                        <i class="fa-solid fa-file-code text-2xl"></i>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-6">
-                    <div class="glass-card p-3 rounded-xl border border-slate-700">
-                        <span class="text-xs font-bold text-brand-cyan">1. Mapeie</span>
-                        <p class="text-xs text-slate-300 mt-1">Defina o resultado e etapas repetitivas.</p>
-                    </div>
-                    <div class="glass-card p-3 rounded-xl border border-slate-700">
-                        <span class="text-xs font-bold text-teal-300">2. Grave</span>
-                        <p class="text-xs text-slate-300 mt-1">Explique colunas, abas e filtros passo a passo.</p>
-                    </div>
-                    <div class="glass-card p-3 rounded-xl border border-slate-700">
-                        <span class="text-xs font-bold text-yellow-300">3. Evidências</span>
-                        <p class="text-xs text-slate-300 mt-1">Anexe transcrição, prints e o prompt detalhado.</p>
-                    </div>
-                    <div class="glass-card p-3 rounded-xl border border-slate-700">
-                        <span class="text-xs font-bold text-purple-300">4. Teste</span>
-                        <p class="text-xs text-slate-300 mt-1">Execute o código VBA inicial com poucas linhas.</p>
-                    </div>
-                    <div class="glass-card p-3 rounded-xl border border-slate-700">
-                        <span class="text-xs font-bold text-pink-300">5. Refine</span>
-                        <p class="text-xs text-slate-300 mt-1">Erros acontecem. Ajuste e interaja com a IA!</p>
+                    <div class="px-3 py-1 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/30 text-xs font-bold">
+                        Fórmula Fundamental
                     </div>
                 </div>
 
-                <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border-2 border-brand-cyan shadow-xl shadow-cyan-500/10 mb-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-wand-magic-sparkles text-brand-cyan text-base"></i>
-                            <span class="text-xs font-extrabold text-brand-cyan uppercase tracking-wider">
-                                Prompt Pronto para Copiar e Testar na IA
-                            </span>
-                        </div>
-                        <button onclick="copyMacroPrompt()" class="px-4 py-1.5 bg-brand-cyan hover:bg-teal-300 text-brand-dark font-extrabold text-xs rounded-xl shadow-md transition flex items-center gap-1.5">
-                            <i class="fa-solid fa-copy"></i>
-                            <span id="copy-text">Copiar Prompt</span>
-                        </button>
-                    </div>
-                    <p id="macro-prompt-code" class="text-xs md:text-sm font-mono text-slate-100 bg-slate-950/90 p-4 rounded-xl border border-slate-800 leading-relaxed">
-"Analise esta transcrição da gravação de tela. Também estou enviando imagens das planilhas. Identifique: onde clico, quais filtros aplico, colunas utilizadas e fórmulas.
-
-Com base nisso:
-1. Gere uma macro VBA que reproduza exatamente o processo;
-2. Comente o código para facilitação de manutenção;
-3. Explique como instalar no Excel e criar o botão de disparo."
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                        <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-cyan-500/10">
-                            Passo 1
-                        </span>
-                        <img src="imagem1.jpg" alt="Passo 1" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/00d2ff?text=Mapeamento+de+Processo';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-                    </div>
-
-                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                        <span class="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-teal-500/10">
-                            Passo 2
-                        </span>
-                        <img src="imagem2.png" alt="Passo 2" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/00e5ff?text=Grava%C3%A7%C3%A3o+de+Tela';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-                    </div>
-
-                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                        <span class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-yellow-500/10">
-                            Passo 3
-                        </span>
-                        <img src="imagem3.png" alt="Passo 3" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/eab308?text=Gera%C3%A7%C3%A3o+de+Evid%C3%AAncias';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-                    </div>
-
-                    <div class="glass-card p-4 rounded-2xl border border-slate-700/80 hover:border-cyan-500/50 transition duration-300 flex flex-col items-center">
-                        <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-sm font-extrabold uppercase tracking-wider mb-3 shadow-md shadow-purple-500/10">
-                            Passo 4
-                        </span>
-                        <img src="imagem4.png" alt="Passo 4" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x350/0a192f/a855f7?text=Execu%C3%A7%C3%A3o+e+Ajustes';" class="w-full h-48 md:h-56 object-cover rounded-xl border border-slate-800 shadow-lg">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6: DESAFIO QUIZ LOBBY (START) -->
-        <section class="slide flex-col w-full" id="slide-6">
-            <div class="glass-panel p-8 md:p-12 rounded-3xl w-full max-w-3xl mx-auto text-center border-2 border-yellow-500/30 bg-gradient-to-b from-slate-900/90 to-brand-dark">
-                <div class="w-20 h-20 bg-yellow-500/20 border-2 border-yellow-400 rounded-2xl flex items-center justify-center text-yellow-400 text-4xl mx-auto mb-6 shadow-lg shadow-yellow-500/20">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-                
-                <span class="px-4 py-1.5 rounded-full bg-yellow-500/10 text-yellow-300 border border-yellow-500/30 text-xs font-bold uppercase tracking-widest">
-                    Desafio Prático em Tempo Real
-                </span>
-
-                <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4">
-                    Quiz de Prompts & IA
-                </h2>
-                
-                <p class="text-slate-300 text-sm md:text-base max-w-lg mx-auto mb-8">
-                    São 4 questões dinâmicas. Você terá <strong class="text-yellow-300">15 segundos por Pergunta</strong>! Respostas mais rápidas acumulam pontos bônus.
+                <p class="text-sm text-slate-300 mb-6">
+                    Um prompt completo garante respostas precisas de primeira, sem necessidade de múltiplas correções.
                 </p>
 
-                <div class="glass-card p-6 rounded-2xl max-w-md mx-auto text-left mb-8 border border-slate-700">
-                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Digite seu Nome para o Ranking:</label>
-                    <div class="flex gap-2">
-                        <input type="text" id="player-name" placeholder="Ex: Maria Silva" class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-yellow-400 font-semibold">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <div class="glass-card p-5 rounded-2xl border-t-4 border-t-cyan-400">
+                        <div class="text-cyan-400 font-extrabold text-lg mb-1">01. Contexto</div>
+                        <h4 class="font-bold text-white text-sm mb-2">O Cenário</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">Forneça o background da situação, departamento ou objetivo geral.</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border-t-4 border-t-teal-400">
+                        <div class="text-teal-400 font-extrabold text-lg mb-1">02. Tarefa</div>
+                        <h4 class="font-bold text-white text-sm mb-2">A Ação Principal</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">Diga exatamente o que a IA deve fazer (Criar, Resumir, Analisar, Calcular).</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border-t-4 border-t-blue-400">
+                        <div class="text-blue-400 font-extrabold text-lg mb-1">03. Formato</div>
+                        <h4 class="font-bold text-white text-sm mb-2">A Estrutura</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">Especifique se deseja Tabela, E-mail, Tópicos, JSON ou Código.</p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl border-t-4 border-t-indigo-400">
+                        <div class="text-indigo-400 font-extrabold text-lg mb-1">04. Detalhes</div>
+                        <h4 class="font-bold text-white text-sm mb-2">As Restrições</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">Defina regras, limitações, tom de voz e dados específicos a utilizar.</p>
                     </div>
                 </div>
 
-                <button onclick="startQuizGame()" class="px-10 py-4 bg-gradient-to-r from-yellow-500 to-amber-600 text-brand-dark font-extrabold text-lg rounded-xl shadow-xl shadow-yellow-500/20 hover:scale-105 hover:shadow-yellow-500/40 transition">
-                    Começar o Desafio!
-                </button>
-            </div>
-        </section>
-
-        <!-- SLIDE 7: QUIZ QUESTION CONTAINER -->
-        <section class="slide flex-col w-full" id="slide-7">
-            <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-cyan-500/30 relative overflow-hidden">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
-                    <div class="flex items-center gap-3">
-                        <span id="quiz-question-counter" class="px-3 py-1 bg-cyan-500/20 text-brand-cyan border border-cyan-500/40 rounded-full font-bold text-xs">
-                            Questão 1 de 4
-                        </span>
-                        <span id="player-display-name" class="text-xs text-slate-400 font-semibold">
-                            Jogador: <strong class="text-white">Usuário</strong>
-                        </span>
+                <div class="p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border border-slate-700">
+                    <div class="flex items-center gap-2 text-brand-cyan text-xs font-bold uppercase mb-2">
+                        <i class="fa-solid fa-code"></i> Estrutura Recomendada na Prática
                     </div>
-
-                    <div class="flex items-center gap-4">
-                        <div class="flex items-center gap-2 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-                            <i class="fa-solid fa-coins text-yellow-400 text-sm"></i>
-                            <span id="quiz-score" class="font-bold text-white text-sm">0 pts</span>
-                        </div>
-                        <div class="relative w-12 h-12 flex items-center justify-center">
-                            <svg class="w-12 h-12 transform -rotate-90">
-                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-slate-800" fill="transparent"/>
-                                <circle id="timer-ring" cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" class="text-brand-cyan" fill="transparent" stroke-dasharray="125.6" stroke-dashoffset="0"/>
-                            </svg>
-                            <span id="timer-text" class="absolute font-extrabold text-sm text-white">15</span>
-                        </div>
+                    <div class="bg-slate-950 p-4 rounded-xl font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
+                        <span class="text-cyan-400">[CONTEXTO]:</span> Estou organizando um relatório mensal de fechamento de projetos no Excel.<br>
+                        <span class="text-teal-400">[TAREFA]:</span> Analise os dados brutos e monte um resumo dos principais gargalos.<br>
+                        <span class="text-blue-400">[FORMATO]:</span> Apresente o resultado em formato de tabela com 3 colunas.<br>
+                        <span class="text-indigo-400">[DETALHES]:</span> Seja direto, use tom profissional e limite o resumo a no máximo 150 palavras.
                     </div>
-                </div>
-
-                <h3 id="question-title" class="text-lg md:text-2xl font-bold text-white leading-snug mb-6">
-                    Carregando pergunta...
-                </h3>
-
-                <div id="options-container" class="space-y-3 mb-6"></div>
-
-                <div id="quiz-feedback" class="hidden p-4 rounded-2xl border text-sm flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <i id="feedback-icon" class="text-xl"></i>
-                        <div>
-                            <h4 id="feedback-title" class="font-bold text-white"></h4>
-                            <p id="feedback-desc" class="text-xs text-slate-300 mt-0.5"></p>
-                        </div>
-                    </div>
-                    <button id="next-q-btn" onclick="nextQuestion()" class="px-5 py-2.5 bg-brand-cyan text-brand-dark font-bold text-xs rounded-xl hover:bg-teal-300 transition">
-                        Próxima Pergunta <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 8: FINAL LEADERBOARD -->
-        <section class="slide flex-col w-full" id="slide-8">
-            <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
-                <div class="text-center mb-6">
-                    <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 text-xs font-bold uppercase tracking-widest">
-                        Resultado do Desafio
-                    </span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Ranking Geral em Tempo Real</h2>
-                </div>
-
-                <!-- Podium Top 3 -->
-                <div class="grid grid-cols-3 gap-3 md:gap-6 max-w-2xl mx-auto mb-8 items-end">
-                    <div class="flex flex-col items-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-slate-800 border-2 border-slate-400 flex items-center justify-center text-slate-300 font-extrabold text-lg mb-2 shadow-lg">
-                            2º
-                        </div>
-                        <span id="podium-2-name" class="text-xs font-bold text-slate-300 truncate w-full text-center">-</span>
-                        <span id="podium-2-score" class="text-[11px] text-slate-400">0 pts</span>
-                        <div class="w-full bg-slate-800/80 rounded-t-xl h-20 md:h-28 mt-2 border-t-2 border-slate-400 flex items-center justify-center">
-                            <i class="fa-solid fa-medal text-slate-400 text-2xl"></i>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="relative">
-                            <i class="fa-solid fa-crown text-yellow-400 text-xl absolute -top-5 left-1/2 transform -translate-x-1/2"></i>
-                            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-500/20 border-2 border-yellow-400 flex items-center justify-center text-yellow-300 font-extrabold text-2xl mb-2 shadow-xl shadow-yellow-500/30">
-                                1º
-                            </div>
-                        </div>
-                        <span id="podium-1-name" class="text-xs font-bold text-yellow-300 truncate w-full text-center">-</span>
-                        <span id="podium-1-score" class="text-xs font-extrabold text-yellow-400">0 pts</span>
-                        <div class="w-full bg-gradient-to-t from-yellow-600/40 to-yellow-500/20 rounded-t-xl h-28 md:h-36 mt-2 border-t-2 border-yellow-400 flex items-center justify-center">
-                            <i class="fa-solid fa-trophy text-yellow-400 text-3xl"></i>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-amber-900/40 border-2 border-amber-600 flex items-center justify-center text-amber-500 font-extrabold text-lg mb-2 shadow-lg">
-                            3º
-                        </div>
-                        <span id="podium-3-name" class="text-xs font-bold text-slate-300 truncate w-full text-center">-</span>
-                        <span id="podium-3-score" class="text-[11px] text-slate-400">0 pts</span>
-                        <div class="w-full bg-slate-800/80 rounded-t-xl h-16 md:h-24 mt-2 border-t-2 border-amber-600 flex items-center justify-center">
-                            <i class="fa-solid fa-award text-amber-600 text-xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl p-4 max-w-2xl mx-auto mb-6">
-                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Tabela Completa de Desempenho</h4>
-                    <div id="leaderboard-list" class="space-y-2 text-xs">
-                        <p class="text-center text-slate-500 py-4">Carregando dados do servidor...</p>
-                    </div>
-                </div>
-
-                <div class="flex justify-center gap-4">
-                    <button onclick="startQuizGame()" class="px-6 py-3 bg-yellow-500 text-brand-dark font-bold text-xs rounded-xl hover:bg-yellow-400 transition">
-                        <i class="fa-solid fa-rotate-right mr-1"></i> Jogar Novamente
-                    </button>
-                    <button onclick="jumpToSlide(9)" class="px-6 py-3 bg-brand-cyan text-brand-dark font-bold text-xs rounded-xl hover:bg-teal-300 transition">
-                        Ir para Validador de Prompts <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9: DESAFIO PRÁTICO - ESCREVA SEU PROMPT -->
-        <section class="slide flex-col w-full" id="slide-9">
-            <div class="glass-panel p-6 md:p-8 rounded-3xl w-full border border-cyan-500/30">
-                <div class="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-3">
+        <!-- SLIDE 6: COMO PEDIR MACROS SEM IMAGENS -->
+        <section class="slide flex-col w-full" id="slide-6">
+            <div class="glass-panel p-8 md:p-10 rounded-3xl w-full border border-cyan-500/20">
+                <div class="flex items-center justify-between mb-6">
                     <div>
-                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Slide 9: Desafio Prático</span>
-                        <h2 class="text-xl md:text-2xl font-bold text-white">Desafio Prático: Validação e Auditoria de Planilhas</h2>
+                        <span class="text-xs font-bold text-brand-cyan tracking-widest uppercase">Módulo 04</span>
+                        <h2 class="text-3xl font-bold text-white">Como Pedir uma Macro para a IA</h2>
                     </div>
-                    <div class="p-2.5 bg-cyan-500/10 rounded-xl text-brand-cyan">
-                        <i class="fa-solid fa-file-circle-check text-2xl"></i>
+                    <div class="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
+                        <i class="fa-solid fa-code text-2xl"></i>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-4">
-                    <!-- Detalhes do Desafio -->
-                    <div class="lg:col-span-5 space-y-3">
-                        <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
-                            <span class="text-[11px] font-bold text-teal-300 uppercase tracking-wider block mb-1">
-                                <i class="fa-solid fa-compass mr-1"></i> Cenário
-                            </span>
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Você tem uma planilha de acompanhamento e precisa garantir que não existam campos vazios ou inconsistências antes de gerar um relatório oficial.
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+                    <div class="glass-card p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-brand-cyan flex items-center justify-center font-bold text-lg mb-3">1</div>
+                            <h3 class="font-bold text-white text-base mb-2">Mapeie o Processo</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Descreva o passo a passo exato da tarefa no Excel. Indique o nome das planilhas, colunas e células envolvidas.
                             </p>
                         </div>
-
-                        <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 space-y-1.5 text-xs">
-                            <span class="text-[11px] font-bold text-brand-cyan uppercase tracking-wider block mb-1">
-                                <i class="fa-solid fa-list-check mr-1"></i> Sua Tarefa: Monte a Estrutura
-                            </span>
-                            <p class="text-slate-300"><strong class="text-brand-cyan">Papel:</strong> Atue como um especialista em auditoria de dados e Excel.</p>
-                            <p class="text-slate-300"><strong class="text-teal-300">Contexto:</strong> Tenho uma planilha com as colunas: Data (Coluna A), Ticket (Coluna B), Status (Coluna C) e Data de Conclusão (Coluna D).</p>
-                            <p class="text-slate-300"><strong class="text-yellow-300">Tarefa:</strong> Crie uma solução (fórmula ou código VBA) que identifique linhas com campos em branco e valide se a 'Data de Conclusão' está preenchida enquanto o 'Status' não está marcado como 'Concluído'.</p>
-                            <p class="text-slate-300"><strong class="text-purple-300">Formato:</strong> Apresente o passo a passo de implementação, o código/fórmula e como destacar visualmente os erros na planilha.</p>
-                        </div>
-
-                        <div class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-200">
-                            <strong class="text-brand-cyan font-bold block mb-0.5"><i class="fa-solid fa-bolt mr-1"></i> Atividade:</strong>
-                            Adapte o texto com as colunas do seu dia a dia e envie a mensagem no chat para passar pela validação da IA!
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-cyan-300 font-mono">
+                            <i class="fa-solid fa-check text-emerald-400 mr-1"></i> Nome das Abas e Intervalos exatos
                         </div>
                     </div>
 
-                    <!-- Editor e Resposta -->
-                    <div class="lg:col-span-7 flex flex-col justify-between">
+                    <div class="glass-card p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
                         <div>
-                            <label for="prompt-input" class="block text-xs font-bold text-slate-300 uppercase mb-1.5 flex items-center justify-between">
-                                <span><i class="fa-solid fa-keyboard text-brand-cyan mr-1"></i> Escreva seu Prompt:</span>
-                                <span class="text-[10px] text-slate-400 font-normal">Pressione a barra de espaço normalmente</span>
-                            </label>
-                            <textarea id="prompt-input" class="w-full h-40 bg-slate-950 p-3.5 rounded-xl border border-slate-700 text-xs md:text-sm text-white focus:outline-none focus:border-brand-cyan font-mono leading-relaxed resize-none" placeholder="Digite seu prompt preenchendo a estrutura solicitada..."></textarea>
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold text-lg mb-3">2</div>
+                            <h3 class="font-bold text-white text-base mb-2">Especifique Regras de Negócio</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Informe o tratamento de erros, o que fazer com células vazias e se novas linhas devem ser adicionadas.
+                            </p>
                         </div>
-                        
-                        <div class="flex flex-col sm:flex-row gap-2.5 my-3">
-                            <button onclick="analyzePrompt()" class="flex-1 py-3 bg-brand-cyan text-brand-dark font-extrabold text-xs rounded-xl hover:bg-teal-300 transition shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                <span>Avaliar Prompt na IA</span>
-                            </button>
-                            <button onclick="fillSamplePrompt()" class="px-4 py-3 glass-card text-slate-300 font-semibold text-xs rounded-xl hover:bg-slate-800 transition">
-                                Carregar Exemplo
-                            </button>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-teal-300 font-mono">
+                            <i class="fa-solid fa-shield-halved text-teal-400 mr-1"></i> Evita erros em tempo de execução
                         </div>
+                    </div>
 
-                        <div id="ai-response" class="p-4 rounded-xl bg-slate-950/90 border border-slate-800 hidden">
-                            <div class="flex items-center gap-2 text-brand-cyan font-bold text-xs uppercase mb-2">
-                                <i class="fa-solid fa-robot"></i> Validação da Inteligência Artificial
-                            </div>
-                            <div id="feedback-content" class="text-slate-200 text-xs space-y-1.5"></div>
+                    <div class="glass-card p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center font-bold text-lg mb-3">3</div>
+                            <h3 class="font-bold text-white text-base mb-2">Solicite Código Comentado</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Peça para a IA incluir comentários no código VBA explicando onde colocar o script no Excel.
+                            </p>
                         </div>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-indigo-300 font-mono">
+                            <i class="fa-solid fa-terminal text-indigo-400 mr-1"></i> Guia de aplicação no Alt + F11
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXEMPLO DE PROMPT DE MACRO (100% CÓDIGO E TEXTO) -->
+                <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-brand-cyan uppercase flex items-center gap-2">
+                            <i class="fa-solid fa-terminal"></i> Exemplo Completo de Prompt para Gerar Macro VBA
+                        </span>
+                        <span class="text-[10px] bg-cyan-500/10 text-brand-cyan border border-cyan-500/30 px-2 py-0.5 rounded-full font-mono">Excel VBA</span>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-xl font-mono text-xs text-slate-300 leading-relaxed border border-slate-800/80">
+                        "Crie uma macro VBA para o Microsoft Excel que automatize a consolidação de dados.<br>
+                        - <strong class="text-cyan-300">Origem:</strong> Copiar dados da aba 'Vendas_Brutas' (intervalo A2:E100).<br>
+                        - <strong class="text-teal-300">Destino:</strong> Colar no final da tabela na aba 'Consolidado'.<br>
+                        - <strong class="text-blue-300">Regra:</strong> Apenas colar registros onde a Coluna C for maior que zero.<br>
+                        - <strong class="text-indigo-300">Extra:</strong> Adicione tratamento de erro para caso a aba 'Consolidado' não exista e inclua comentários explicativos no código."
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 10: MITOS E VERDADES SOBRE PROMPTS -->
-        
-
-        <!-- SLIDE 11: CONCLUSION -->
-        <section class="slide flex-col w-full text-center" id="slide-11">
-            <div class="glass-panel p-10 md:p-14 rounded-3xl w-full max-w-3xl mx-auto border border-cyan-500/20">
-                <div class="w-16 h-16 rounded-2xl bg-accent-gradient flex items-center justify-center text-white text-3xl mx-auto mb-6 shadow-xl shadow-cyan-500/30">
-                    <i class="fa-solid fa-rocket"></i>
+        <!-- SLIDE 7: DESAFIO DE PROMPT (SEM SESSÃO "SUA TAREFA: MONTE O PROMPT") -->
+        <section class="slide flex-col w-full" id="slide-7">
+            <div class="glass-panel p-6 md:p-8 rounded-3xl w-full border border-cyan-500/20">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs font-bold text-yellow-400 tracking-widest uppercase">Prática Interativa</span>
+                        <h2 class="text-2xl md:text-3xl font-bold text-white">Desafio de Construção de Prompt</h2>
+                    </div>
+                    <div class="p-2.5 bg-yellow-500/20 rounded-xl text-yellow-400 border border-yellow-500/30">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                    </div>
                 </div>
 
-                <h2 class="text-4xl font-extrabold text-white mb-4">Obrigado!</h2>
-                <p class="text-xl font-light text-brand-cyan mb-8">"Make it real."</p>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    <!-- ÁREA DE TESTE -->
+                    <div class="lg:col-span-12 space-y-4">
+                        <div class="glass-card p-5 rounded-2xl border border-cyan-500/30">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="block text-sm font-bold text-white">
+                                    Escreva seu Prompt abaixo para testar a estrutura:
+                                </label>
+                                <div class="flex items-center gap-2" id="prompt-pills">
+                                    <span id="pill-contexto" class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-800 text-slate-500 border border-slate-700">Contexto</span>
+                                    <span id="pill-tarefa" class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-800 text-slate-500 border border-slate-700">Tarefa</span>
+                                    <span id="pill-formato" class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-800 text-slate-500 border border-slate-700">Formato</span>
+                                    <span id="pill-detalhes" class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-800 text-slate-500 border border-slate-700">Detalhes</span>
+                                </div>
+                            </div>
+                            <textarea id="prompt-input" oninput="analyzeUserPrompt()" rows="5" placeholder="Digite seu prompt aqui considerando Contexto, Tarefa, Formato e Detalhes..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-brand-cyan font-mono leading-relaxed"></textarea>
+                            
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-3">
+                                <p id="prompt-score-text" class="text-xs text-slate-400 font-medium">
+                                    Adicione Contexto, Tarefa, Formato e Detalhes para completar o desafio.
+                                </p>
+                                <button onclick="simulateAIPromptResponse()" class="w-full sm:w-auto px-5 py-2.5 bg-accent-gradient text-white font-bold text-xs rounded-xl shadow-lg hover:scale-105 transition flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Testar Resposta da IA</span>
+                                </button>
+                            </div>
+                        </div>
 
-                <p class="text-sm text-slate-300 max-w-md mx-auto leading-relaxed mb-8">
-                    Coloque em prática o que aprendeu hoje. Comece aplicando a fórmula de prompts na sua próxima tarefa e automatize seus processos diários!
-                </p>
-
-                <div class="inline-flex items-center gap-4 p-4 rounded-2xl glass-card border border-slate-700 text-xs text-slate-300">
-                    <span>Eduana Schlickmann</span>
-                    <span class="text-slate-600">•</span>
-                    <span>Sara Reis</span>
-                    <span class="text-slate-600">•</span>
-                    <span class="text-brand-cyan font-semibold">Capgemini 2026</span>
+                        <!-- SAÍDA SIMULADA DA IA -->
+                        <div id="ai-response-box" class="glass-card p-5 rounded-2xl border border-slate-800 hidden">
+                            <div class="flex items-center gap-2 text-teal-400 text-xs font-bold mb-2">
+                                <i class="fa-solid fa-robot"></i> Resposta Gerada pela IA
+                            </div>
+                            <div id="ai-response-content" class="text-xs text-slate-300 font-mono leading-relaxed bg-slate-950 p-3.5 rounded-xl border border-slate-800"></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mt-8">
-                    <button onclick="jumpToSlide(1)" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-xl transition">
-                        <i class="fa-solid fa-house mr-1"></i> Voltar ao Início
+                <div class="mt-4 text-center">
+                    <button onclick="nextSlide()" class="px-8 py-3 bg-yellow-500 text-brand-dark font-extrabold text-xs rounded-xl hover:bg-yellow-400 transition shadow-lg inline-flex items-center gap-2">
+                        <span>Avançar para o Quiz com Ranking</span>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: QUIZ - QUESTION 1 (TIMER 1m 30s) -->
+        <section class="slide flex-col w-full" id="slide-8">
+            <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 font-bold flex items-center justify-center">1/4</span>
+                        <div>
+                            <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Quiz Interativo (1m30s por pergunta)</span>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Estrutura de Prompts</h2>
+                        </div>
+                    </div>
+
+                    <!-- TIMER CIRCULAR (90 SEGUNDOS = 1m 30s) -->
+                    <div class="relative w-16 h-16 flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90 timer-svg" viewBox="0 0 36 36">
+                            <path class="text-slate-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <path id="timer-circle-1" class="text-brand-cyan" stroke-dasharray="100, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                        </svg>
+                        <span id="timer-text-1" class="absolute text-xs font-extrabold text-white">1:30</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg md:text-xl font-bold text-slate-100 leading-snug">
+                        Qual combinação representa os 4 pilares fundamentais para construir um prompt perfeito?
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 gap-3.5 mb-6" id="q1-options">
+                    <button onclick="answerQuestion(1, 0, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">A</span>
+                        <span class="text-sm text-slate-200 font-medium">Apenas pedir o resultado final e definir um número de palavras.</span>
+                    </button>
+                    <button onclick="answerQuestion(1, 1, true)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">B</span>
+                        <span class="text-sm text-slate-200 font-medium">Contexto, Tarefa, Formato e Detalhes.</span>
+                    </button>
+                    <button onclick="answerQuestion(1, 2, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">C</span>
+                        <span class="text-sm text-slate-200 font-medium">Copiar e colar o e-mail inteiro sem dar instruções.</span>
+                    </button>
+                </div>
+
+                <div id="q1-feedback" class="hidden p-4 rounded-2xl text-xs leading-relaxed font-semibold"></div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: QUIZ - QUESTION 2 (TIMER 1m 30s) -->
+        <section class="slide flex-col w-full" id="slide-9">
+            <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 font-bold flex items-center justify-center">2/4</span>
+                        <div>
+                            <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Quiz Interativo (1m30s por pergunta)</span>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Automação de Macros VBA</h2>
+                        </div>
+                    </div>
+
+                    <div class="relative w-16 h-16 flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90 timer-svg" viewBox="0 0 36 36">
+                            <path class="text-slate-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <path id="timer-circle-2" class="text-brand-cyan" stroke-dasharray="100, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                        </svg>
+                        <span id="timer-text-2" class="absolute text-xs font-extrabold text-white">1:30</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg md:text-xl font-bold text-slate-100 leading-snug">
+                        Ao solicitar um código de Macro VBA no Excel para a IA, qual é a boa prática recomendada?
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 gap-3.5 mb-6" id="q2-options">
+                    <button onclick="answerQuestion(2, 0, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">A</span>
+                        <span class="text-sm text-slate-200 font-medium">Pedir apenas "faça uma macro para ajustar minha planilha" sem detalhes.</span>
+                    </button>
+                    <button onclick="answerQuestion(2, 1, true)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">B</span>
+                        <span class="text-sm text-slate-200 font-medium">Mapear o nome das planilhas, colunas envolvidas e solicitar o código comentado.</span>
+                    </button>
+                    <button onclick="answerQuestion(2, 2, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">C</span>
+                        <span class="text-sm text-slate-200 font-medium">Executar códigos desconhecidos sem ler os comentários ou testar primeiro.</span>
+                    </button>
+                </div>
+
+                <div id="q2-feedback" class="hidden p-4 rounded-2xl text-xs leading-relaxed font-semibold"></div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: QUIZ - QUESTION 3 (TIMER 1m 30s) -->
+        <section class="slide flex-col w-full" id="slide-10">
+            <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 font-bold flex items-center justify-center">3/4</span>
+                        <div>
+                            <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Quiz Interativo (1m30s por pergunta)</span>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Boas Práticas de Prompting</h2>
+                        </div>
+                    </div>
+
+                    <div class="relative w-16 h-16 flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90 timer-svg" viewBox="0 0 36 36">
+                            <path class="text-slate-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <path id="timer-circle-3" class="text-brand-cyan" stroke-dasharray="100, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                        </svg>
+                        <span id="timer-text-3" class="absolute text-xs font-extrabold text-white">1:30</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg md:text-xl font-bold text-slate-100 leading-snug">
+                        Para ensinar um padrão visual de resposta à IA (Few-Shot Prompting), quantos exemplos são ideais?
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 gap-3.5 mb-6" id="q3-options">
+                    <button onclick="answerQuestion(3, 0, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">A</span>
+                        <span class="text-sm text-slate-200 font-medium">Nenhum exemplo, a IA sempre adivinha o padrão.</span>
+                    </button>
+                    <button onclick="answerQuestion(3, 1, true)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">B</span>
+                        <span class="text-sm text-slate-200 font-medium">Cerca de 2 a 3 exemplos práticos e claros.</span>
+                    </button>
+                    <button onclick="answerQuestion(3, 2, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">C</span>
+                        <span class="text-sm text-slate-200 font-medium">Mais de 20 exemplos em texto puro.</span>
+                    </button>
+                </div>
+
+                <div id="q3-feedback" class="hidden p-4 rounded-2xl text-xs leading-relaxed font-semibold"></div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: QUIZ QUESTION 4 & RANKING LEADERBOARD -->
+        <section class="slide flex-col w-full" id="slide-11">
+            <div class="glass-panel p-6 md:p-10 rounded-3xl w-full border border-yellow-500/30">
+                <div id="q4-container">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 font-bold flex items-center justify-center">4/4</span>
+                            <div>
+                                <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Última Pergunta (1m30s)</span>
+                                <h2 class="text-xl md:text-2xl font-bold text-white">Tarefas Complexas</h2>
+                            </div>
+                        </div>
+
+                        <div class="relative w-16 h-16 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90 timer-svg" viewBox="0 0 36 36">
+                                <path class="text-slate-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                <path id="timer-circle-4" class="text-brand-cyan" stroke-dasharray="100, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            </svg>
+                            <span id="timer-text-4" class="absolute text-xs font-extrabold text-white">1:30</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-100 leading-snug">
+                            Qual a melhor estratégia ao solicitar uma análise complexa em múltiplos passos para a IA?
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-3.5 mb-6" id="q4-options">
+                        <button onclick="answerQuestion(4, 0, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                            <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">A</span>
+                            <span class="text-sm text-slate-200 font-medium">Misturar 10 tarefas diferentes sem separação num único bloco de texto.</span>
+                        </button>
+                        <button onclick="answerQuestion(4, 1, true)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                            <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">B</span>
+                            <span class="text-sm text-slate-200 font-medium">Dividir em etapas sequenciais ou pedir para pensar passo a passo.</span>
+                        </button>
+                        <button onclick="answerQuestion(4, 2, false)" class="glass-card p-4 rounded-2xl text-left hover:border-cyan-500 transition flex items-center gap-3 group">
+                            <span class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center group-hover:bg-brand-cyan group-hover:text-brand-dark transition">C</span>
+                            <span class="text-sm text-slate-200 font-medium">Escrever tudo em caixa alta para a IA entender melhor.</span>
+                        </button>
+                    </div>
+
+                    <div id="q4-feedback" class="hidden p-4 rounded-2xl text-xs leading-relaxed font-semibold"></div>
+                </div>
+
+                <!-- TELA FINAL DO RANKING & REGISTRO -->
+                <div id="quiz-results" class="hidden text-center py-4">
+                    <div class="w-20 h-20 rounded-full bg-yellow-500/20 border-2 border-yellow-400 flex items-center justify-center text-yellow-400 text-3xl mx-auto mb-4 animate-bounce">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+
+                    <h2 class="text-3xl font-extrabold text-white mb-2">Quiz Concluído!</h2>
+                    <p class="text-sm text-slate-300 mb-6">Veja seu desempenho e registre seu nome no Placar de Líderes:</p>
+
+                    <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-700 max-w-md mx-auto mb-6">
+                        <div class="text-xs text-slate-400 font-bold uppercase mb-1">Sua Pontuação Final</div>
+                        <div id="final-score-val" class="text-5xl font-black text-brand-cyan mb-2">0 pts</div>
+                        <div id="final-score-details" class="text-xs text-teal-300 font-medium">0 de 4 acertos</div>
+                    </div>
+
+                    <!-- REGISTRO NO RANKING -->
+                    <div class="max-w-md mx-auto mb-8">
+                        <div class="flex gap-2">
+                            <input type="text" id="player-name-input" placeholder="Digite seu nome para o Ranking..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                            <button onclick="submitScoreToLeaderboard()" class="px-6 py-3 bg-yellow-400 text-brand-dark font-extrabold text-sm rounded-xl hover:bg-yellow-300 transition shadow-lg">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LEADERBOARD REALTIME -->
+                    <div class="max-w-xl mx-auto text-left">
+                        <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-3 flex items-center justify-between">
+                            <span><i class="fa-solid fa-ranking-star text-yellow-400 mr-2"></i> Placar de Líderes</span>
+                            <span class="text-xs text-slate-400 lowercase font-normal">Sincronizado ao vivo</span>
+                        </h4>
+
+                        <div id="leaderboard-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 text-center">
+                                Carregando ranking...
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -921,96 +916,56 @@ Com base nisso:
     </main>
 
     <!-- FOOTER CONTROLS -->
-    <footer class="sticky bottom-0 z-50 glass-panel border-t border-slate-800/80 px-4 lg:px-8 py-3 flex items-center justify-between">
-        <button onclick="prevSlide()" id="prev-btn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition flex items-center gap-2">
+    <footer class="sticky bottom-0 z-50 glass-panel border-t border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between">
+        <button onclick="prevSlide()" id="btn-prev" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition flex items-center gap-2">
             <i class="fa-solid fa-chevron-left"></i>
             <span>Anterior</span>
         </button>
 
-        <div class="hidden sm:flex items-center space-x-1" id="slide-dots"></div>
+        <div class="flex items-center space-x-1.5" id="slide-dots">
+            <!-- Dots gerados via JS -->
+        </div>
 
-        <button onclick="nextSlide()" id="next-btn" class="px-5 py-2 rounded-xl bg-accent-gradient text-white font-bold text-xs shadow-md hover:scale-105 transition flex items-center gap-2">
+        <button onclick="nextSlide()" id="btn-next" class="px-5 py-2.5 rounded-xl bg-accent-gradient text-white text-xs font-bold transition shadow-lg shadow-cyan-500/20 hover:scale-105 flex items-center gap-2">
             <span>Próximo</span>
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- SCRIPT PRINCIPAL DE LÓGICA -->
     <script>
+        // CONFIGURAÇÕES GERAIS
         let currentSlide = 1;
         const totalSlides = 11;
-        let audioEnabled = true;
+        let audioMuted = false;
 
-        const quizQuestions = [
-            {
-                id: 1,
-                question: "Você recebeu uma planilha com 5.000 linhas e precisa destacar em amarelo todas as linhas cujo Status seja 'Urgente'. Qual prompt tende a gerar o melhor resultado?",
-                options: [
-                    { key: "A", text: "Tenho uma planilha Excel e preciso destacar visualmente alguns registros. Pode me explicar como fazer isso usando recursos nativos do Excel?", correct: false },
-                    { key: "B", text: "Tenho uma planilha Excel com uma coluna chamada Status. Preciso que todas as linhas sejam destacadas automaticamente em amarelo quando a célula contiver o texto 'Urgente'. Informe o passo a passo.", correct: false },
-                    { key: "C", text: "Tenho uma planilha Excel com uma coluna chamada Status. Preciso que todas as linhas sejam destacadas em amarelo quando contiver 'Urgente'. Informe o passo a passo com Formatação Condicional. Meu Excel é em PT-BR, com ';' como separador.", correct: true }
-                ],
-                explanation: "O prompt C contém todos os elementos cruciais: Contexto, Objetivo, Formato e Detalhes de versão do Excel!"
-            },
-            {
-                id: 2,
-                question: "Você precisa localizar no SAP todos os materiais cadastrados para um determinado NCM e exportar o resultado para Excel. Qual prompt tende a gerar a resposta mais útil?",
-                options: [
-                    { key: "A", text: "Preciso consultar materiais relacionados a uma classificação fiscal específica no SAP e exportar o resultado para análise.", correct: false },
-                    { key: "B", text: "Como posso identificar materiais cadastrados para um NCM específico utilizando relatórios SAP?", correct: false },
-                    { key: "C", text: "Preciso extrair uma lista de materiais cadastrados para o NCM 21069090 no SAP. Informe quais transações utilizar, quais campos preencher e como exportar o resultado para Excel.", correct: true }
-                ],
-                explanation: "A opção C especifica a transação SAP exata, o código NCM e o fluxo de exportação esperado."
-            },
-            {
-                id: 3,
-                question: "Você recebeu uma planilha com histórico de compras e precisa identificar o melhor fornecedor para cada material. Qual prompt tende a gerar o melhor resultado?",
-                options: [
-                    { key: "A", text: "Analise a planilha anexa, compare os preços dos fornecedores para cada material, identifique a menor cotação e gere uma tabela pronta para Excel contendo Material, Melhor Fornecedor e Menor Preço.", correct: true },
-                    { key: "B", text: "Analise a planilha anexa e identifique oportunidades de melhoria relacionadas aos fornecedores.", correct: false },
-                    { key: "C", text: "Analise a planilha e informe quais fornecedores apresentam os preços mais competitivos para cada material.", correct: false }
-                ],
-                explanation: "A opção A especifica a regra de negócio (menor cotação) e a estrutura exata das colunas desejadas."
-            },
-            {
-                id: 4,
-                question: "Qual dos elementos abaixo mais impacta a qualidade da resposta do Copilot / IA?",
-                options: [
-                    { key: "A", text: "Utilizar apenas termos e palavras altamente técnicas.", correct: false },
-                    { key: "B", text: "Fazer perguntas excessivamente longas e genéricas.", correct: false },
-                    { key: "C", text: "Informar claramente o Contexto, o Objetivo, o Formato esperado e Detalhes adicionais da solicitação.", correct: true }
-                ],
-                explanation: "Exatamente! A combinação dos 5 elementos de contexto garante o alinhamento da resposta da IA."
-            }
-        ];
-
-        let currentQuestionIdx = 0;
-        let score = 0;
+        // VARIÁVEIS DO QUIZ (TIMER DE 1 MINUTO E 30 SEGUNDOS = 90S)
+        const QUESTION_TIME = 90; // 90 segundos por pergunta
         let timerInterval = null;
-        let timeLeft = 15;
-        let playerName = "Usuário";
-        let userAnswers = [];
+        let timeRemaining = QUESTION_TIME;
+        let userScore = 0;
+        let correctAnswersCount = 0;
+        let answeredQuestions = { 1: false, 2: false, 3: false, 4: false };
 
+        // WEB AUDIO SYNTH DE EFEITOS SONOROS
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
         let audioCtx = null;
 
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-        }
-
         function playSound(type) {
-            if (!audioEnabled) return;
-            initAudio();
+            if (audioMuted) return;
             try {
+                if (!audioCtx) audioCtx = new AudioCtx();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
 
                 if (type === 'correct') {
-                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
-                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                    osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3); // A5
                     gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
                     gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
                     osc.start();
@@ -1018,424 +973,373 @@ Com base nisso:
                 } else if (type === 'wrong') {
                     osc.type = 'sawtooth';
                     osc.frequency.setValueAtTime(220, audioCtx.currentTime);
-                    osc.frequency.setValueAtTime(164.81, audioCtx.currentTime + 0.15);
-                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+                    osc.frequency.exponentialRampToValueAtTime(110, audioCtx.currentTime + 0.3);
+                    gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
                     osc.start();
-                    osc.stop(audioCtx.currentTime + 0.35);
+                    osc.stop(audioCtx.currentTime + 0.3);
                 } else if (type === 'tick') {
-                    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-                    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
                     osc.start();
                     osc.stop(audioCtx.currentTime + 0.05);
                 }
-            } catch (e) { console.log(e); }
+            } catch(e){}
         }
 
         function toggleAudio() {
-            audioEnabled = !audioEnabled;
+            audioMuted = !audioMuted;
             const icon = document.getElementById('audio-icon');
-            if (audioEnabled) {
-                icon.className = 'fa-solid fa-volume-high';
-            } else {
+            if (audioMuted) {
                 icon.className = 'fa-solid fa-volume-xmark text-red-400';
+            } else {
+                icon.className = 'fa-solid fa-volume-high text-slate-300';
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            initDots();
-            showSlide(currentSlide);
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(()=>{});
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+            }
+        }
 
-            // CORREÇÃO DA TECLA ESPAÇO: Bloqueia a navegação de slide se estiver digitando num campo de texto (textarea/input)
-            document.addEventListener('keydown', (e) => {
-                const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-                const isEditable = activeTag === 'textarea' || activeTag === 'input' || document.activeElement.isContentEditable;
+        // CONTROLADOR DE SLIDES
+        function initDots() {
+            const container = document.getElementById('slide-dots');
+            container.innerHTML = '';
+            for (let i = 1; i <= totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `w-2.5 h-2.5 rounded-full transition-all ${i === currentSlide ? 'bg-brand-cyan w-6' : 'bg-slate-700 hover:bg-slate-500'}`;
+                dot.onclick = () => jumpToSlide(i);
+                container.appendChild(dot);
+            }
+        }
 
-                if (isEditable) {
-                    return; // Permite a digitação normal da tecla espaço e setas sem mudar o slide
-                }
-
-                if (e.key === 'ArrowRight' || e.key === ' ') {
-                    e.preventDefault();
-                    if (currentSlide !== 7) nextSlide();
-                } else if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    if (currentSlide !== 7) prevSlide();
+        function updateSlideUI() {
+            document.querySelectorAll('.slide').forEach((s, idx) => {
+                if (idx + 1 === currentSlide) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
                 }
             });
-        });
 
-        function initDots() {
-            const dotsContainer = document.getElementById('slide-dots');
-            dotsContainer.innerHTML = '';
-            for (let i = 1; i <= totalSlides; i++) {
-                const btn = document.createElement('button');
-                btn.className = `w-2.5 h-2.5 rounded-full transition-all ${i === currentSlide ? 'bg-brand-cyan w-6' : 'bg-slate-700 hover:bg-slate-500'}`;
-                btn.onclick = () => jumpToSlide(i);
-                dotsContainer.appendChild(btn);
-            }
-            document.getElementById('total-slides-num').innerText = totalSlides;
-        }
-
-        function updateUI() {
-            document.getElementById('current-slide-num').innerText = currentSlide;
+            document.getElementById('current-slide-num').textContent = currentSlide;
+            document.getElementById('total-slides-num').textContent = totalSlides;
             document.getElementById('progress-bar').style.width = `${(currentSlide / totalSlides) * 100}%`;
 
-            const dots = document.getElementById('slide-dots').children;
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = `w-2.5 h-2.5 rounded-full transition-all ${i + 1 === currentSlide ? 'bg-brand-cyan w-6' : 'bg-slate-700 hover:bg-slate-500'}`;
-            }
+            initDots();
 
-            document.getElementById('prev-btn').style.opacity = currentSlide === 1 ? '0.5' : '1';
-            document.getElementById('next-btn').style.opacity = currentSlide === totalSlides ? '0.5' : '1';
+            // Lógica do Timer para Slides do Quiz
+            if (currentSlide >= 8 && currentSlide <= 11) {
+                const qNum = currentSlide - 7; // 1, 2, 3, 4
+                if (!answeredQuestions[qNum]) {
+                    startQuizTimer(qNum);
+                }
+            } else {
+                clearInterval(timerInterval);
+            }
         }
 
-        function showSlide(n) {
-            const slides = document.querySelectorAll('.slide');
-            slides.forEach(s => s.classList.remove('active'));
-
-            const target = document.getElementById(`slide-${n}`);
-            if (target) {
-                target.classList.add('active');
-            }
-
-            if (n === 8) {
-                renderRanking();
-            }
-
-            currentSlide = n;
-            updateUI();
+        function jumpToSlide(num) {
+            if (num < 1 || num > totalSlides) return;
+            currentSlide = num;
+            updateSlideUI();
         }
 
         function nextSlide() {
             if (currentSlide < totalSlides) {
-                showSlide(currentSlide + 1);
+                currentSlide++;
+                updateSlideUI();
             }
         }
 
         function prevSlide() {
             if (currentSlide > 1) {
-                showSlide(currentSlide - 1);
+                currentSlide--;
+                updateSlideUI();
             }
         }
 
-        function jumpToSlide(n) {
-            showSlide(n);
-        }
-
+        // REFLEXÃO DO USUÁRIO
         function saveUserReflection() {
-            const val = document.getElementById('user-task-input').value;
-            if (val.trim()) {
+            const val = document.getElementById('user-task-input').value.trim();
+            if (val) {
                 document.getElementById('reflection-feedback').classList.remove('hidden');
+                playSound('correct');
             }
         }
 
-        function copyMacroPrompt() {
-            const codeElement = document.getElementById('macro-prompt-code');
-            const textToCopy = codeElement.innerText || codeElement.textContent;
+        // ANALISADOR DO DESAFIO DE PROMPT (CONTEXTO, TAREFA, FORMATO, DETALHES)
+        function analyzeUserPrompt() {
+            const text = document.getElementById('prompt-input').value.toLowerCase();
 
-            navigator.clipboard.writeText(textToCopy.trim()).then(() => {
-                const copyBtn = document.getElementById('copy-text');
-                if (copyBtn) {
-                    copyBtn.innerText = "Copiado! ✓";
-                    setTimeout(() => { copyBtn.innerText = "Copiar Prompt"; }, 2000);
-                }
-            });
+            // Mapeamento dos 4 Pilares
+            const hasContexto = text.includes('empresa') || text.includes('cenário') || text.includes('contexto') || text.includes('setor') || text.includes('vendas') || text.includes('relatório') || text.includes('projeto') || text.includes('equipe') || text.includes('processo') || text.length > 20;
+            const hasTarefa = text.includes('crie') || text.includes('gerar') || text.includes('faça') || text.includes('escreva') || text.includes('analise') || text.includes('desenvolva') || text.includes('calcule') || text.includes('resuma') || text.includes('extraia');
+            const hasFormato = text.includes('tabela') || text.includes('lista') || text.includes('bullets') || text.includes('e-mail') || text.includes('format') || text.includes('json') || text.includes('parágrafo') || text.includes('colunas') || text.includes('tópicos');
+            const hasDetalhes = text.includes('sem') || text.includes('máximo') || text.includes('tom') || text.includes('regra') || text.includes('evite') || text.includes('detalhe') || text.includes('observação') || text.includes('apenas') || text.includes('considerando') || text.includes('limite') || text.length > 60;
+
+            updatePill('pill-contexto', hasContexto, 'Contexto');
+            updatePill('pill-tarefa', hasTarefa, 'Tarefa');
+            updatePill('pill-formato', hasFormato, 'Formato');
+            updatePill('pill-detalhes', hasDetalhes, 'Detalhes');
+
+            const score = (hasContexto?1:0) + (hasTarefa?1:0) + (hasFormato?1:0) + (hasDetalhes?1:0);
+            const scoreText = document.getElementById('prompt-score-text');
+
+            if (score === 4) {
+                scoreText.innerHTML = `<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check-double"></i> Excelente! Seu prompt possui Contexto, Tarefa, Formato e Detalhes!</span>`;
+            } else if (score >= 2) {
+                scoreText.innerHTML = `<span class="text-yellow-400 font-bold">Bom progresso (${score}/4 pilares). Adicione os elementos restantes para ficar perfeito.</span>`;
+            } else {
+                scoreText.textContent = 'Adicione Contexto, Tarefa, Formato e Detalhes para completar o desafio.';
+            }
         }
 
-        function startQuizGame() {
-            const nameInput = document.getElementById('player-name').value;
-            playerName = nameInput.trim() ? nameInput : "Usuário";
-            document.getElementById('player-display-name').innerHTML = `Jogador: <strong class="text-white">${playerName}</strong>`;
-
-            currentQuestionIdx = 0;
-            score = 0;
-            userAnswers = [];
-            document.getElementById('quiz-score').innerText = `0 pts`;
-
-            showSlide(7);
-            loadQuestion(currentQuestionIdx);
+        function updatePill(id, active, label) {
+            const el = document.getElementById(id);
+            if (active) {
+                el.className = 'text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+                el.innerHTML = `<i class="fa-solid fa-check text-[9px] mr-1"></i>${label}`;
+            } else {
+                el.className = 'text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-800 text-slate-500 border border-slate-700';
+                el.textContent = label;
+            }
         }
 
-        function loadQuestion(idx) {
+        function simulateAIPromptResponse() {
+            const val = document.getElementById('prompt-input').value.trim();
+            const box = document.getElementById('ai-response-box');
+            const content = document.getElementById('ai-response-content');
+
+            box.classList.remove('hidden');
+            if (!val) {
+                content.textContent = "Por favor, digite uma instrução na caixa de texto acima para simular a resposta.";
+                return;
+            }
+
+            playSound('correct');
+            content.innerHTML = `<span class="text-emerald-400">✓ Prompt Processado com Sucesso!</span><br><br>Sua solicitação foi estruturada corretamente. A IA usou o contexto e as regras fornecidas para gerar uma resposta altamente precisa.`;
+        }
+
+        // SISTEMA DO QUIZ (TIMER DE 90 SEGUNDOS = 1m 30s)
+        function startQuizTimer(qNum) {
             clearInterval(timerInterval);
-            const q = quizQuestions[idx];
-            
-            document.getElementById('quiz-question-counter').innerText = `Questão ${idx + 1} de ${quizQuestions.length}`;
-            document.getElementById('question-title').innerText = q.question;
+            timeRemaining = QUESTION_TIME;
 
-            document.getElementById('quiz-feedback').classList.add('hidden');
+            const circle = document.getElementById(`timer-circle-${qNum}`);
+            const text = document.getElementById(`timer-text-${qNum}`);
 
-            const optsContainer = document.getElementById('options-container');
-            optsContainer.innerHTML = '';
+            function updateTimerDisplay() {
+                const mins = Math.floor(timeRemaining / 60);
+                const secs = timeRemaining % 60;
+                text.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 
-            q.options.forEach((opt) => {
-                const btn = document.createElement('button');
-                btn.className = "w-full text-left p-4 rounded-xl glass-card hover:border-cyan-500 transition flex items-start gap-3 group border border-slate-700/80";
-                btn.onclick = () => selectOption(opt, q);
-                btn.innerHTML = `
-                    <span class="w-7 h-7 rounded-lg bg-slate-800 border border-slate-600 flex items-center justify-center font-bold text-xs text-brand-cyan group-hover:bg-brand-cyan group-hover:text-brand-dark transition shrink-0">
-                        ${opt.key}
-                    </span>
-                    <span class="text-xs md:text-sm text-slate-200 leading-relaxed font-medium">
-                        ${opt.text}
-                    </span>
-                `;
-                optsContainer.appendChild(btn);
-            });
+                const pct = (timeRemaining / QUESTION_TIME) * 100;
+                if (circle) {
+                    circle.setAttribute('stroke-dasharray', `${pct}, 100`);
+                    if (timeRemaining <= 15) {
+                        circle.setAttribute('class', 'text-red-500 transition-all');
+                    } else {
+                        circle.setAttribute('class', 'text-brand-cyan transition-all');
+                    }
+                }
+            }
 
-            timeLeft = 15;
-            updateTimerRing();
-            
+            updateTimerDisplay();
+
             timerInterval = setInterval(() => {
-                timeLeft--;
-                playSound('tick');
-                updateTimerRing();
+                timeRemaining--;
+                updateTimerDisplay();
 
-                if (timeLeft <= 0) {
+                if (timeRemaining <= 5 && timeRemaining > 0) {
+                    playSound('tick');
+                }
+
+                if (timeRemaining <= 0) {
                     clearInterval(timerInterval);
-                    timeOutAnswer(q);
+                    autoTimeOutAnswer(qNum);
                 }
             }, 1000);
         }
 
-        function updateTimerRing() {
-            document.getElementById('timer-text').innerText = timeLeft;
-            const circle = document.getElementById('timer-ring');
-            const circumference = 2 * Math.PI * 20;
-            const offset = circumference - (timeLeft / 15) * circumference;
-            circle.style.strokeDashoffset = offset;
-
-            if (timeLeft <= 5) {
-                circle.classList.remove('text-brand-cyan');
-                circle.classList.add('text-red-500');
-            } else {
-                circle.classList.remove('text-red-500');
-                circle.classList.add('text-brand-cyan');
-            }
-        }
-
-        function selectOption(selectedOpt, question) {
+        function answerQuestion(qNum, optIdx, isCorrect) {
+            if (answeredQuestions[qNum]) return;
+            answeredQuestions[qNum] = true;
             clearInterval(timerInterval);
-            const isCorrect = selectedOpt.correct;
 
-            let earnedPoints = 0;
+            const optionsContainer = document.getElementById(`q${qNum}-options`);
+            const feedback = document.getElementById(`q${qNum}-feedback`);
+            const buttons = optionsContainer.querySelectorAll('button');
+
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === optIdx) {
+                    if (isCorrect) {
+                        btn.className = 'glass-card p-4 rounded-2xl text-left bg-emerald-500/20 border-2 border-emerald-500 text-white flex items-center gap-3';
+                    } else {
+                        btn.className = 'glass-card p-4 rounded-2xl text-left bg-red-500/20 border-2 border-red-500 text-white flex items-center gap-3';
+                    }
+                }
+            });
+
+            feedback.classList.remove('hidden');
             if (isCorrect) {
-                earnedPoints = 100 + (timeLeft * 10);
-                score += earnedPoints;
                 playSound('correct');
+                const pointsEarned = 100 + (timeRemaining * 2);
+                userScore += pointsEarned;
+                correctAnswersCount++;
+                feedback.className = 'p-4 rounded-2xl text-xs leading-relaxed font-semibold bg-emerald-500/20 border border-emerald-500/40 text-emerald-300';
+                feedback.innerHTML = `<i class="fa-solid fa-circle-check text-sm mr-1"></i> Resposta Correta! Você ganhou <strong>+${pointsEarned} pontos</strong> (${timeRemaining}s restantes).`;
             } else {
                 playSound('wrong');
+                feedback.className = 'p-4 rounded-2xl text-xs leading-relaxed font-semibold bg-red-500/20 border border-red-500/40 text-red-300';
+                feedback.innerHTML = `<i class="fa-solid fa-circle-xmark text-sm mr-1"></i> Resposta Incorreta. Revise o módulo de prompts para reforçar este conceito.`;
             }
 
-            document.getElementById('quiz-score').innerText = `${score} pts`;
-
-            const opts = document.getElementById('options-container').children;
-            question.options.forEach((opt, index) => {
-                const btn = opts[index];
-                btn.disabled = true;
-                if (opt.correct) {
-                    btn.className = "w-full text-left p-4 rounded-xl bg-emerald-500/20 border-2 border-emerald-400 text-white flex items-start gap-3";
-                } else if (opt.key === selectedOpt.key && !isCorrect) {
-                    btn.className = "w-full text-left p-4 rounded-xl bg-red-500/20 border-2 border-red-500 text-white flex items-start gap-3";
+            setTimeout(() => {
+                if (qNum < 4) {
+                    nextSlide();
                 } else {
-                    btn.className = "w-full text-left p-4 rounded-xl glass-card opacity-50 flex items-start gap-3";
+                    showFinalLeaderboard();
                 }
-            });
-
-            const feedbackBox = document.getElementById('quiz-feedback');
-            feedbackBox.classList.remove('hidden');
-
-            if (isCorrect) {
-                feedbackBox.className = "p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/40 text-sm flex items-center justify-between";
-                document.getElementById('feedback-icon').className = "fa-solid fa-circle-check text-emerald-400 text-2xl";
-                document.getElementById('feedback-title').innerText = `Resposta Correta! (+${earnedPoints} pts)`;
-            } else {
-                feedbackBox.className = "p-4 rounded-2xl bg-red-500/10 border border-red-500/40 text-sm flex items-center justify-between";
-                document.getElementById('feedback-icon').className = "fa-solid fa-circle-xmark text-red-400 text-2xl";
-                document.getElementById('feedback-title').innerText = "Resposta Incorreta!";
-            }
-            document.getElementById('feedback-desc').innerText = question.explanation;
-
-            userAnswers.push({ questionId: question.id, correct: isCorrect, points: earnedPoints });
+            }, 2500);
         }
 
-        function timeOutAnswer(question) {
+        function autoTimeOutAnswer(qNum) {
+            if (answeredQuestions[qNum]) return;
+            answeredQuestions[qNum] = true;
+
+            const feedback = document.getElementById(`q${qNum}-feedback`);
+            feedback.classList.remove('hidden');
+            feedback.className = 'p-4 rounded-2xl text-xs leading-relaxed font-semibold bg-red-500/20 border border-red-500/40 text-red-300';
+            feedback.innerHTML = `<i class="fa-solid fa-clock text-sm mr-1"></i> Tempo esgotado! (1m30s) Avançando...`;
             playSound('wrong');
-            const opts = document.getElementById('options-container').children;
-            question.options.forEach((opt, index) => {
-                const btn = opts[index];
-                btn.disabled = true;
-                if (opt.correct) {
-                    btn.className = "w-full text-left p-4 rounded-xl bg-emerald-500/20 border-2 border-emerald-400 text-white flex items-start gap-3";
+
+            setTimeout(() => {
+                if (qNum < 4) {
+                    nextSlide();
                 } else {
-                    btn.className = "w-full text-left p-4 rounded-xl glass-card opacity-40 flex items-start gap-3";
+                    showFinalLeaderboard();
                 }
-            });
-
-            const feedbackBox = document.getElementById('quiz-feedback');
-            feedbackBox.classList.remove('hidden');
-            feedbackBox.className = "p-4 rounded-2xl bg-yellow-500/10 border border-yellow-500/40 text-sm flex items-center justify-between";
-            document.getElementById('feedback-icon').className = "fa-solid fa-hourglass-end text-yellow-400 text-2xl";
-            document.getElementById('feedback-title').innerText = "Tempo Esgotado!";
-            document.getElementById('feedback-desc').innerText = question.explanation;
-
-            userAnswers.push({ questionId: question.id, correct: false, points: 0 });
+            }, 2000);
         }
 
-        function nextQuestion() {
-            currentQuestionIdx++;
-            if (currentQuestionIdx < quizQuestions.length) {
-                loadQuestion(currentQuestionIdx);
+        function showFinalLeaderboard() {
+            document.getElementById('q4-container').classList.add('hidden');
+            document.getElementById('quiz-results').classList.remove('hidden');
+
+            document.getElementById('final-score-val').textContent = `${userScore} pts`;
+            document.getElementById('final-score-details').textContent = `${correctAnswersCount} de 4 acertos`;
+
+            try {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            } catch(e){}
+
+            loadLeaderboard();
+        }
+
+        // BANCO DE DADOS FIREBASE / LOCALSTORAGE FALLBACK FOR LEADERBOARD
+        function submitScoreToLeaderboard() {
+            const name = document.getElementById('player-name-input').value.trim() || 'Participante';
+            
+            const entry = {
+                name: name,
+                score: userScore,
+                correct: correctAnswersCount,
+                timestamp: Date.now()
+            };
+
+            if (database) {
+                database.ref('leaderboard').push(entry).then(() => {
+                    loadLeaderboard();
+                }).catch(() => {
+                    saveLocalLeaderboard(entry);
+                });
             } else {
-                showSlide(8);
+                saveLocalLeaderboard(entry);
             }
         }
 
-        function renderRanking() {
-            confetti({
-                particleCount: 80,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
+        function saveLocalLeaderboard(entry) {
+            let list = JSON.parse(localStorage.getItem('quiz_leaderboard') || '[]');
+            list.push(entry);
+            list.sort((a,b) => b.score - a.score);
+            localStorage.setItem('quiz_leaderboard', JSON.stringify(list));
+            renderLeaderboardList(list);
+        }
 
-            if (!database) {
-                console.warn("Banco de dados não está disponível no momento. Exibindo placar local.");
-                updateLeaderboardUI([{ name: playerName, score: score }]);
+        function loadLeaderboard() {
+            if (database) {
+                database.ref('leaderboard').orderByChild('score').limitToLast(10).once('value', (snapshot) => {
+                    let items = [];
+                    snapshot.forEach(child => {
+                        items.push(child.val());
+                    });
+                    items.reverse();
+                    if (items.length > 0) {
+                        renderLeaderboardList(items);
+                    } else {
+                        loadLocal();
+                    }
+                }).catch(() => loadLocal());
+            } else {
+                loadLocal();
+            }
+
+            function loadLocal() {
+                let list = JSON.parse(localStorage.getItem('quiz_leaderboard') || '[]');
+                renderLeaderboardList(list);
+            }
+        }
+
+        function renderLeaderboardList(items) {
+            const container = document.getElementById('leaderboard-list');
+            if (!items || items.length === 0) {
+                container.innerHTML = `<div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 text-center">Nenhuma pontuação registrada ainda. Seja o primeiro!</div>`;
                 return;
             }
 
-            const safeKey = playerName.replace(/[.#$\[\]]/g, "_");
-            const playerRef = database.ref('ranking/' + safeKey);
-            playerRef.set({
-                name: playerName,
-                score: score,
-                updatedAt: Date.now()
-            });
-
-            database.ref('ranking').on('value', (snapshot) => {
-                const competitors = [];
-                snapshot.forEach((child) => {
-                    competitors.push(child.val());
-                });
-
-                competitors.sort((a, b) => b.score - a.score);
-                updateLeaderboardUI(competitors);
-            }, (error) => {
-                console.error("Erro ao carregar dados do Firebase:", error);
-                updateLeaderboardUI([{ name: playerName, score: score }]);
-            });
-        }
-
-        function updateLeaderboardUI(competitors) {
-            const top1 = competitors[0] || { name: "-", score: 0 };
-            const top2 = competitors[1] || { name: "-", score: 0 };
-            const top3 = competitors[2] || { name: "-", score: 0 };
-
-            document.getElementById('podium-1-name').innerText = top1.name;
-            document.getElementById('podium-1-score').innerText = `${top1.score} pts`;
-
-            document.getElementById('podium-2-name').innerText = top2.name;
-            document.getElementById('podium-2-score').innerText = `${top2.score} pts`;
-
-            document.getElementById('podium-3-name').innerText = top3.name;
-            document.getElementById('podium-3-score').innerText = `${top3.score} pts`;
-
-            const listContainer = document.getElementById('leaderboard-list');
-            listContainer.innerHTML = '';
-
-            competitors.forEach((comp, rank) => {
-                const isCurrent = comp.name === playerName;
-                const item = document.createElement('div');
-                item.className = `p-3 rounded-xl flex items-center justify-between ${isCurrent ? 'bg-cyan-500/20 border border-cyan-500/50 text-white font-bold' : 'glass-card text-slate-300'}`;
-                item.innerHTML = `
+            container.innerHTML = items.map((item, idx) => `
+                <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                        <span class="w-6 h-6 rounded-full ${rank === 0 ? 'bg-yellow-500 text-brand-dark' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-bold text-xs">
-                            ${rank + 1}
-                        </span>
-                        <span>${comp.name} ${isCurrent ? '<span class="text-[10px] text-brand-cyan uppercase ml-1">(Você)</span>' : ''}</span>
+                        <span class="w-6 h-6 rounded-full ${idx === 0 ? 'bg-yellow-400 text-brand-dark' : idx === 1 ? 'bg-slate-300 text-brand-dark' : idx === 2 ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-400'} text-xs font-bold flex items-center justify-center">${idx + 1}</span>
+                        <span class="text-xs font-bold text-white">${escapeHtml(item.name)}</span>
                     </div>
-                    <span class="font-bold text-brand-cyan">${comp.score} pts</span>
-                `;
-                listContainer.appendChild(item);
+                    <div class="text-right">
+                        <span class="text-xs font-extrabold text-brand-cyan">${item.score} pts</span>
+                        <span class="text-[10px] text-slate-500 block">${item.correct}/4 acertos</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(text) {
+            return String(text).replace(/[&<>"']/g, function(m) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
             });
         }
 
-        // --- LÓGICA ATUALIZADA DO SLIDE 9: VALIDADOR DE PROMPTS ---
-        function fillSamplePrompt() {
-            document.getElementById('prompt-input').value = `Atue como um especialista em auditoria de dados e Excel.
-
-Contexto: Tenho uma planilha com as colunas: Data (Coluna A), Ticket (Coluna B), Status (Coluna C) e Data de Conclusão (Coluna D).
-
-Tarefa: Crie uma solução (fórmula ou código VBA) que identifique linhas com campos em branco e valide se a 'Data de Conclusão' está preenchida enquanto o 'Status' não está marcado como 'Concluído'.
-
-Formato: Apresente o passo a passo de implementação, o código/fórmula e como destacar visualmente os erros na planilha.`;
-        }
-
-        function analyzePrompt() {
-            const prompt = document.getElementById('prompt-input').value.toLowerCase();
-            const feedbackDiv = document.getElementById('ai-response');
-            const feedbackContent = document.getElementById('feedback-content');
-            
-            feedbackDiv.classList.remove('hidden');
-            let score = 0;
-            let feedback = [];
-
-            const checks = [
-                { 
-                    id: 'persona',
-                    keyword: ['especialista', 'auditoria', 'excel', 'atue como', 'papel'], 
-                    ok: "✅ <strong>Papel:</strong> Definido corretamente como Especialista/Auditor.", 
-                    err: "❌ <strong>Papel:</strong> Especifique o papel (Ex: 'Atue como um especialista em auditoria de dados e Excel')." 
-                },
-                { 
-                    id: 'contexto',
-                    keyword: ['data', 'ticket', 'status', 'conclusão', 'coluna', 'planilha'], 
-                    ok: "✅ <strong>Contexto:</strong> Mencionou as colunas e a estrutura da planilha.", 
-                    err: "❌ <strong>Contexto:</strong> Faltam detalhes sobre as colunas (Data, Ticket, Status, Conclusão)." 
-                },
-                { 
-                    id: 'tarefa',
-                    keyword: ['branco', 'vazio', 'inconsistência', 'validar', 'concluído', 'fórmula', 'vba', 'solução'], 
-                    ok: "✅ <strong>Tarefa & Regra:</strong> Especificou a busca de campos em branco e validação de Status.", 
-                    err: "❌ <strong>Tarefa:</strong> Especifique a regra (validar campos em branco e inconsistência com Status 'Concluído')." 
-                },
-                { 
-                    id: 'formato',
-                    keyword: ['passo a passo', 'código', 'fórmula', 'destacar', 'visual', 'implementação'], 
-                    ok: "✅ <strong>Formato:</strong> Pediu o código/fórmula, o passo a passo e o destaque visual.", 
-                    err: "❌ <strong>Formato:</strong> Peça explicitamente o passo a passo, o código/fórmula e como destacar erros." 
-                }
-            ];
-
-            checks.forEach(check => {
-                if (check.keyword.some(k => prompt.includes(k))) {
-                    score++;
-                    feedback.push(`<p class="text-emerald-400">${check.ok}</p>`);
-                } else {
-                    feedback.push(`<p class="text-red-400">${check.err}</p>`);
-                }
-            });
-
-            if (score === 4) {
-                feedback.push("<div class='mt-2 p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-bold text-center text-xs'>✨ Prompt Perfeito! Contempla exatamente toda a estrutura e regras exigidas.</div>");
-            } else if (score >= 2) {
-                feedback.push("<div class='mt-2 p-2.5 rounded-xl bg-yellow-500/20 border border-yellow-400/40 text-yellow-300 font-bold text-center text-xs'>⚠️ Prompt Razoável! Adicione os itens em vermelho para garantir a resposta exata da IA.</div>");
-            } else {
-                feedback.push("<div class='mt-2 p-2.5 rounded-xl bg-red-500/20 border border-red-400/40 text-red-300 font-bold text-center text-xs'>🚨 Prompt Incompleto! Utilize os botões do desafio ou o exemplo fornecido.</div>");
+        // INICIALIZAÇÃO TECLAS DE ATALHO
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
             }
+        });
 
-            feedbackContent.innerHTML = feedback.join('');
-        }
-
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => console.log(err));
-            } else {
-                if (document.exitFullscreen) document.exitFullscreen();
-            }
-        }
+        // INICIAR SLIDES
+        updateSlideUI();
     </script>
 </body>
 </html>
